@@ -1,0 +1,38 @@
+Adicionar quem abriu motoclube (Log Turnos):
+    -Nome
+    -Hora abertu
+    -Hora fecho
+    -Descricaocom razao de abertura
+
+Log tudo o que acontece no Sistema:
+
+Inscrições (BPMN):
+    -Registo
+        -Pagamento
+            -Cartao -> (Completo)
+            -Dinheiro
+                -Pending
+                    -Pagou -> (Completo)
+
+Fluxo:
+    -Registo / Login
+        -Estatisticas
+
+Clicar para abrir / fechar Club
+
+Sócio:
+    - Foto ✅
+    - Nome ✅
+    - Contacto ✅
+    - Email
+    - Tipo Sangue
+    - Morada ✅
+    - Data inicio
+    - Eventos Participou
+    - Doações
+    - Lucro do sócio ✅
+    - Brindes
+        - T-Shirt ( 15€ )
+        - Porta Chaves ( 1€ )
+        - Sweat ( 25€ )
+
