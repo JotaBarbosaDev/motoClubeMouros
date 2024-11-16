@@ -42,7 +42,7 @@ export function TeamSwitcher({
               <span className="truncate font-semibold">
                 {activeTeam.name}
               </span>
-              <span className="truncate text-xs text-green-700 flex font-semibold"><MapPin className="w-3 h-3"/>{activeTeam.plan}</span>
+              <span className="truncate text-xs text-green-700 flex font-semibold animate-pulse"><MapPin className="w-3 h-3"/>{activeTeam.plan}</span>
             </div>
           </SidebarMenuButton>
         </Dialog>

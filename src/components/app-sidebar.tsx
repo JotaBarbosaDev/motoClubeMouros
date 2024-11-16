@@ -41,36 +41,36 @@ const data = {
   navMain: [
     {
       title: "Estatísticas",
-      url: "/estatisticas",
+      url: "/",
       icon: PieChart,
       isActive: false,
       items: [
         {
           title: "Gerais",
-          url: '/',
+          url: '/dashboard',
         },
         {
           title: "Eventos",
-          url: "/estatisticas/eventos",
+          url: "/dashboard",
         },
       ],
     },
     {
       title: "Membros",
-      url: "/membros",
+      url: "/members",
       icon: Users,
       items: [
         {
           title: "Direção",
-          url: "/membros/direcao",
+          url: "/members",
         },
         {
           title: "Sócios",
-          url: "/membros/socios",
+          url: "/members",
         },
         {
           title: "Gema / Quotas",
-          url: "/membros/quotas",
+          url: "/members",
         },
       ],
     },
@@ -124,7 +124,7 @@ const data = {
       items: [
         {
           title: "Todas",
-          url: "/garage/todas",
+          url: "/garage",
         },
         {
           title: "Naked",

@@ -38,34 +38,120 @@ import {
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb"
 import { SidebarTrigger } from "@/components/ui/sidebar"
 import { Separator } from "@/components/ui/separator"
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
+import { AppSidebar } from "@/components/app-sidebar"
+import { Avatar } from "@/components/ui/avatar" 
+
 
 const data: Member[] = [
   {
     id: "1",
-    nome: "João Barbosa",
-    email: "joao@example.com",
-    telefone: "123-456-790",
+    nome: "Gonçalo Marques",
+    email: "marcuja@example.com",
+    telefone: "926078885",
+    dataInscricao: "2021/02/01",
   },
   {
     id: "2",
     nome: "Maria Silva",
     email: "maria@example.com",
-    telefone: "098-765-431",
+    telefone: "964914045",
+    dataInscricao: "2021/11/07",
   },
   {
     id: "3",
     nome: "José Santos",
     email: "ededkoe@gmail.com",
-    telefone: "926-078-885"
+    telefone: "915639097",
+    dataInscricao: "2021/10/01",
   },
-  // Adicione mais membros conforme necessário
+  {
+    id: "4",
+    nome: "Ana Costa",
+    email: "ana.costa@example.com",
+    telefone: "912345678",
+    dataInscricao: "2021/03/15",
+  },
+  {
+    id: "5",
+    nome: "Bruno Silva",
+    email: "bruno.silva@example.com",
+    telefone: "923456789",
+    dataInscricao: "2021/04/20",
+  },
+  {
+    id: "6",
+    nome: "Carla Fernandes",
+    email: "carla.fernandes@example.com",
+    telefone: "934567890",
+    dataInscricao: "2021/05/25",
+  },
+  {
+    id: "7",
+    nome: "Diogo Gomes",
+    email: "diogo.gomes@example.com",
+    telefone: "945678901",
+    dataInscricao: "2021/06/30",
+  },
+  {
+    id: "8",
+    nome: "Eduarda Marques",
+    email: "eduarda.marques@example.com",
+    telefone: "956789012",
+    dataInscricao: "2021/07/05",
+  },
+  {
+    id: "9",
+    nome: "Fernando Costa",
+    email: "fernando.costa@example.com",
+    telefone: "967890123",
+    dataInscricao: "2021/08/10",
+  },
+  {
+    id: "10",
+    nome: "Gabriela Almeida",
+    email: "gabriela.almeida@example.com",
+    telefone: "978901234",
+    dataInscricao: "2021/09/15",
+  },
+  {
+    id: "11",
+    nome: "Hugo Rodrigues",
+    email: "hugo.rodrigues@example.com",
+    telefone: "989012345",
+    dataInscricao: "2021/10/20",
+  },
+  {
+    id: "12",
+    nome: "Inês Sousa",
+    email: "ines.sousa@example.com",
+    telefone: "990123456",
+    dataInscricao: "2021/11/25",
+  },
+  {
+    id: "13",
+    nome: "Joana Silva",
+    email: "joana.silva@example.com",
+    telefone: "901234567",
+    dataInscricao: "2021/12/30",
+  },
+  {
+    id: "14",
+    nome: "João Barbosa",
+    email: "joao@example.com",
+    telefone: "926078885",
+    dataInscricao: "2021/02/02",
+  },
+  
 ]
+
 
 export type Member = {
   id: string
   nome: string
   email: string
   telefone: string
+  dataInscricao: string
 }
 
 export const columns: ColumnDef<Member>[] = [
@@ -92,9 +178,21 @@ export const columns: ColumnDef<Member>[] = [
     enableHiding: false,
   },
   {
+    accessorKey: "id",
+    header: "Nº",
+    cell: ({ row }) => <div>{row.getValue("id")}</div>,
+  },
+  {
     accessorKey: "nome",
     header: "Nome",
-    cell: ({ row }) => <div>{row.getValue("nome")}</div>,
+    cell: ({ row }) => (
+      <div className="flex items-center">
+        <Avatar className="flex items-center justify-center border w-7 h-7">
+          {(row.getValue("nome") as string)[0]}
+        </Avatar>
+        <span className="ml-2">{row.getValue("nome")}</span>
+      </div>
+    ),
   },
   {
     accessorKey: "email",
@@ -117,12 +215,27 @@ export const columns: ColumnDef<Member>[] = [
     cell: ({ row }) => <div>{row.getValue("telefone")}</div>,
   },
   {
+    accessorKey: "dataInscricao",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Data de Inscrição
+          <ArrowUpDown />
+        </Button>
+      )
+    },
+    cell: ({ row }) => <div>{row.getValue("dataInscricao")}</div>,
+  },
+  {
     id: "actions",
     enableHiding: false,
     cell: ({ row }) => {
       const member = row.original
 
-      return (
+      return (<>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" className="h-8 w-8 p-0">
@@ -138,10 +251,18 @@ export const columns: ColumnDef<Member>[] = [
               Copiar ID do membro
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Ver membro</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => { 
+                console.log(member.nome) 
+                }}>
+              Ver membro
+            </DropdownMenuItem>
             <DropdownMenuItem>Ver detalhes do membro</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
+
+        
+
+</>
       )
     },
   },
@@ -176,6 +297,9 @@ export default function Members() {
   })
 
   return (
+    <SidebarProvider>
+      <AppSidebar />
+        <SidebarInset>
     <div className="p-4">
       <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
         <div className="flex items-center gap-2 px-4">
@@ -305,7 +429,10 @@ export default function Members() {
             Próximo
           </Button>
         </div>
+            
       </div>
     </div>
+    </SidebarInset>
+    </SidebarProvider>
   )
 }

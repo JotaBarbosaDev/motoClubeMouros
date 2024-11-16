@@ -1,14 +1,15 @@
 import { Card, CardHeader, CardTitle, CardContent, CardDescription, CardFooter} from '@/components/ui/card';
-import { QuotaChart } from "@/app/dashboard/quotaChart"
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { Separator } from '@/components/ui/separator';
 import { AvatarImage, Avatar, AvatarFallback } from '@radix-ui/react-avatar';
+import { Skeleton } from '@/components/ui/skeleton';
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
 import { AppSidebar } from '@/components/app-sidebar';
+
 
 export default function Garage(){
   return (
@@ -35,10 +36,10 @@ export default function Garage(){
             </Breadcrumb>
           </div>
         </header>
-
+        </div>
         <div className="flex flex-1 flex-col gap-4 p-4">
           <div className="grid auto-rows-min gap-4 md:grid-cols-5">
-            <div className="aspect-square rounded-xl bg-muted/50">
+            <div className="aspect-square rounded-xl bg-muted/50 hover:shadow-lg hover:scale-105 transition-shadow duration-300">
               <Card>
                 <CardHeader>
                   <CardTitle>Yamaha Ténéré </CardTitle>
@@ -47,7 +48,69 @@ export default function Garage(){
                 <CardContent>
                   <Avatar className="mb-4">
                     <AvatarImage src="https://www.antero.pt/imgs/produtos/gd_2023_Yamaha_XTZ700SP_EU_Heritage_White_Studio_001_03.jpg" />
-                    <AvatarFallback>EA</AvatarFallback>
+                    <AvatarFallback>
+                      <Skeleton className="w-full h-full" />
+                    </AvatarFallback>
+                  </Avatar>
+                </CardContent>
+                <CardFooter>
+                  <p>Eduardo Amorim</p>
+                </CardFooter>
+              </Card>
+            </div>
+
+            <div className="aspect-square rounded-xl bg-muted/50 hover:shadow-lg hover:scale-105 transition-shadow duration-300">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Yamaha Ténéré </CardTitle>
+                  <CardDescription>2023</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Avatar className="mb-4">
+                    <AvatarImage src="https://www.antero.pt/imgs/produtos/gd_2023_Yamaha_XTZ700SP_EU_Heritage_White_Studio_001_03.jpg" />
+                    <AvatarFallback>
+                      <Skeleton className="w-full h-full" />
+                    </AvatarFallback>
+                  </Avatar>
+                </CardContent>
+                <CardFooter>
+                  <p>Eduardo Amorim</p>
+                </CardFooter>
+              </Card>
+            </div>
+            
+            <div className="aspect-square rounded-xl bg-muted/50 hover:shadow-lg hover:scale-105 transition-shadow duration-300">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Yamaha Ténéré </CardTitle>
+                  <CardDescription>2023</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Avatar className="mb-4">
+                    <AvatarImage src="https://www.antero.pt/imgs/produtos/gd_2023_Yamaha_XTZ700SP_EU_Heritage_White_Studio_001_03.jpg" />
+                    <AvatarFallback>
+                      <Skeleton className="w-full h-full animate-pulse" />
+                    </AvatarFallback>
+                  </Avatar>
+                </CardContent>
+                <CardFooter>
+                  <p>Eduardo Amorim</p>
+                </CardFooter>
+              </Card>
+            </div>
+
+            <div className="aspect-square rounded-xl bg-muted/50 hover:shadow-lg hover:scale-105 transition-shadow duration-300">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Yamaha Ténéré </CardTitle>
+                  <CardDescription>2023</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Avatar className="mb-4">
+                    <AvatarImage src="https://www.antero.pt/imgs/produtos/gd_2023_Yamaha_XTZ700SP_EU_Heritage_White_Studio_001_03.jpg" />
+                    <AvatarFallback>
+                      <Skeleton className="w-full h-full" />
+                    </AvatarFallback>
                   </Avatar>
                 </CardContent>
                 <CardFooter>
@@ -56,8 +119,7 @@ export default function Garage(){
               </Card>
             </div>
           </div>
-        </div>
-      </div>
+        </div>      
       </SidebarInset>
     </SidebarProvider>
   )
