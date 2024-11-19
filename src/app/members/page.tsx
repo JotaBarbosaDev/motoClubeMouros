@@ -41,6 +41,8 @@ import { Separator } from "@/components/ui/separator"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar"
 import { Avatar } from "@/components/ui/avatar" 
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { Label } from "@/components/ui/label"
 
 
 const data: Member[] = [
@@ -251,11 +253,55 @@ export const columns: ColumnDef<Member>[] = [
               Copiar ID do membro
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={() => { 
-                console.log(member.nome) 
-                }}>
-              Ver membro
-            </DropdownMenuItem>
+            <Dialog>
+  
+            {/*comeca teste*/}      
+            <DialogTrigger asChild>
+            <button className="relative flex cursor-default select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent hover:bg-accent w-full justify-start focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&>svg]:size-4 [&>svg]:shrink-0">
+              Editar membro
+            </button>
+            </DialogTrigger>
+          <DialogContent className="sm:max-w-[425px]">
+            <DialogHeader>
+              <DialogTitle>Editar perfil</DialogTitle>
+                <DialogDescription>
+                Faça alterações ao seu perfil aqui. Clique em salvar quando terminar.
+                </DialogDescription>
+            </DialogHeader>
+            <div className="grid gap-4 py-4">
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="name" className="text-right">
+                  Nome
+                </Label>
+                <Input
+                  id="name"
+                  value={member.nome}
+                  onChange={(e) => {
+                    const newName = e.target.value;
+                  }}
+                  className="col-span-3"
+                />
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="email" className="text-right">
+                  Email
+                </Label>
+                <Input
+                  id="email"
+                  value={member.email}
+                  onChange={(e) => {
+                    const newUsername = e.target.value;
+                  }}
+                  className="col-span-3"
+                />
+              </div>
+            </div>
+            <DialogFooter>
+              <Button type="submit">Salvar</Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+        {/*acaba teste*/}
             <DropdownMenuItem>Ver detalhes do membro</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
