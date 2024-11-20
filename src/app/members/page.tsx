@@ -47,98 +47,98 @@ import { Label } from "@/components/ui/label"
 
 const data: Member[] = [
   {
-    id: "1",
+    id: "001",
     nome: "Gonçalo Marques",
     email: "marcuja@example.com",
     telefone: "926078885",
     dataInscricao: "2021/02/01",
   },
   {
-    id: "2",
+    id: "002",
     nome: "Maria Silva",
     email: "maria@example.com",
     telefone: "964914045",
     dataInscricao: "2021/11/07",
   },
   {
-    id: "3",
+    id: "003",
     nome: "José Santos",
     email: "ededkoe@gmail.com",
     telefone: "915639097",
     dataInscricao: "2021/10/01",
   },
   {
-    id: "4",
+    id: "004",
     nome: "Ana Costa",
     email: "ana.costa@example.com",
     telefone: "912345678",
     dataInscricao: "2021/03/15",
   },
   {
-    id: "5",
+    id: "005",
     nome: "Bruno Silva",
     email: "bruno.silva@example.com",
     telefone: "923456789",
     dataInscricao: "2021/04/20",
   },
   {
-    id: "6",
+    id: "006",
     nome: "Carla Fernandes",
     email: "carla.fernandes@example.com",
     telefone: "934567890",
     dataInscricao: "2021/05/25",
   },
   {
-    id: "7",
+    id: "007",
     nome: "Diogo Gomes",
     email: "diogo.gomes@example.com",
     telefone: "945678901",
     dataInscricao: "2021/06/30",
   },
   {
-    id: "8",
+    id: "008",
     nome: "Eduarda Marques",
     email: "eduarda.marques@example.com",
     telefone: "956789012",
     dataInscricao: "2021/07/05",
   },
   {
-    id: "9",
+    id: "009",
     nome: "Fernando Costa",
     email: "fernando.costa@example.com",
     telefone: "967890123",
     dataInscricao: "2021/08/10",
   },
   {
-    id: "10",
+    id: "010",
     nome: "Gabriela Almeida",
     email: "gabriela.almeida@example.com",
     telefone: "978901234",
     dataInscricao: "2021/09/15",
   },
   {
-    id: "11",
+    id: "011",
     nome: "Hugo Rodrigues",
     email: "hugo.rodrigues@example.com",
     telefone: "989012345",
     dataInscricao: "2021/10/20",
   },
   {
-    id: "12",
+    id: "012",
     nome: "Inês Sousa",
     email: "ines.sousa@example.com",
     telefone: "990123456",
     dataInscricao: "2021/11/25",
   },
   {
-    id: "13",
+    id: "013",
     nome: "Joana Silva",
     email: "joana.silva@example.com",
     telefone: "901234567",
     dataInscricao: "2021/12/30",
   },
   {
-    id: "14",
+    id: "014",
     nome: "João Barbosa",
     email: "joao@example.com",
     telefone: "926078885",
@@ -203,13 +203,14 @@ export const columns: ColumnDef<Member>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="hidden xl:flex md:flex lg:flex sm:flex"
         >
           Email
           <ArrowUpDown />
         </Button>
       )
     },
-    cell: ({ row }) => <div className="lowercase">{row.getValue("email")}</div>,
+    cell: ({ row }) => <div className="lowercase hidden sm:flex">{row.getValue("email")}</div>,
   },
   {
     accessorKey: "telefone",
@@ -223,13 +224,14 @@ export const columns: ColumnDef<Member>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="hidden xl:flex md:flex"
         >
           Data de Inscrição
           <ArrowUpDown />
         </Button>
       )
     },
-    cell: ({ row }) => <div>{row.getValue("dataInscricao")}</div>,
+    cell: ({ row }) => <div className="hidden xl:flex md:flex">{row.getValue("dataInscricao")}</div>,
   },
   {
     id: "actions",
@@ -422,7 +424,7 @@ export default function Members() {
       <div className="flex items-center py-4">
         <Input
           placeholder="Filtrar nomes..."
-          value={(table.getColumn("nome")?.getFilterValue() as string) ?? ""}
+          value={((table.getColumn("nome")?.getFilterValue() as string) ?? "")}
           onChange={(event) =>
             table.getColumn("nome")?.setFilterValue(event.target.value)
           }
