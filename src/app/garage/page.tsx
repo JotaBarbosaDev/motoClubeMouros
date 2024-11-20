@@ -9,8 +9,10 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar"
 import { AppSidebar } from '@/components/app-sidebar';
+import { Badge } from '@/components/ui/badge';
+import { Mountain, CircleGauge } from 'lucide-react';
 
-
+// mountain circle-gauge zap
 export default function Garage(){
   return (
     <SidebarProvider>
@@ -34,90 +36,76 @@ export default function Garage(){
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
-          </div>
+          </div> 
         </header>
         </div>
         <div className="flex flex-1 flex-col gap-4 p-4">
-          <div className="grid auto-rows-min gap-4 md:grid-cols-5">
+          <div className="grid auto-rows-min gap-4 md:grid-cols-2 xl:grid-cols-4 lg:grid-cols-3">
+
             <div className="aspect-square rounded-xl bg-muted/50 hover:shadow-lg hover:scale-105 transition-shadow duration-300">
               <Card>
-                <CardHeader>
-                  <CardTitle>Yamaha Ténéré </CardTitle>
-                  <CardDescription>2023</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Avatar className="mb-4">
-                    <AvatarImage src="https://www.antero.pt/imgs/produtos/gd_2023_Yamaha_XTZ700SP_EU_Heritage_White_Studio_001_03.jpg" />
-                    <AvatarFallback>
-                      <Skeleton className="w-full h-full" />
-                    </AvatarFallback>
-                  </Avatar>
-                </CardContent>
-                <CardFooter>
-                  <p>Eduardo Amorim</p>
-                </CardFooter>
+              <CardHeader>
+                <Avatar className="mb-4 w-full h-48">
+                <AvatarImage src="https://www.antero.pt/imgs/produtos/gd_2023_Yamaha_XTZ700SP_EU_Heritage_White_Studio_001_03.jpg"  className="object-cover w-full h-full md:object-contain"/>
+                <AvatarFallback>
+                  <Skeleton className="w-full h-full" />
+                </AvatarFallback>
+                </Avatar>
+                <div className="flex justify-between items-center mt-2">
+                <div className="flex items-center">
+                  
+                  <Badge><Mountain className='w-3 h-3 mx-1'/>Off-road</Badge>
+                </div>
+                <Badge>700cc</Badge>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center gap-2 mb-2">
+                <Avatar className="w-8 h-8">
+                  <AvatarImage src="https://example.com/avatar-eduardo-amorim.png" />
+                  <AvatarFallback>EA</AvatarFallback>
+                </Avatar>
+                <p>Eduardo Amorim</p>
+                </div>
+                <CardTitle>Yamaha Ténéré</CardTitle>
+                <CardDescription>2023</CardDescription>
+                <p className="mt-2">Uma moto robusta e versátil, perfeita para aventuras off-road.</p>
+              </CardContent>
               </Card>
             </div>
 
             <div className="aspect-square rounded-xl bg-muted/50 hover:shadow-lg hover:scale-105 transition-shadow duration-300">
               <Card>
-                <CardHeader>
-                  <CardTitle>Yamaha Ténéré </CardTitle>
-                  <CardDescription>2023</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Avatar className="mb-4">
-                    <AvatarImage src="https://www.antero.pt/imgs/produtos/gd_2023_Yamaha_XTZ700SP_EU_Heritage_White_Studio_001_03.jpg" />
-                    <AvatarFallback>
-                      <Skeleton className="w-full h-full" />
-                    </AvatarFallback>
-                  </Avatar>
-                </CardContent>
-                <CardFooter>
-                  <p>Eduardo Amorim</p>
-                </CardFooter>
+              <CardHeader>
+              <Avatar className="mb-4 w-full h-48">
+              <AvatarImage src="https://motoveiga.pt/wp-content/uploads/2023/11/CBR600R-MOTOVEIGA-.png" className="object-cover w-full h-full" />
+              <AvatarFallback>
+                <Skeleton className="w-full h-full" />
+              </AvatarFallback>
+              </Avatar>
+              <div className="flex justify-between items-center mt-2">
+              <div className="flex items-center">
+                
+                <Badge><CircleGauge className='w-3 h-3 mx-1'/>Street</Badge>
+              </div>
+              <Badge>600cc</Badge>
+              </div>
+              </CardHeader>
+              <CardContent>
+              <div className="flex items-center gap-2 mb-2">
+              <Avatar className="w-8 h-8">
+                <AvatarImage src="https://example.com/avatar-eduardo-amorim.png" />
+                <AvatarFallback>EA</AvatarFallback>
+              </Avatar>
+              <p>Ricardo Rodrigues</p>
+              </div>
+              <CardTitle>Honda CBR600RR</CardTitle>
+              <CardDescription>2018</CardDescription>
+              <p className="mt-2">Uma moto esportiva ágil e potente, ideal para quem busca desempenho nas ruas e pistas.</p>
+              </CardContent>
               </Card>
             </div>
             
-            <div className="aspect-square rounded-xl bg-muted/50 hover:shadow-lg hover:scale-105 transition-shadow duration-300">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Yamaha Ténéré </CardTitle>
-                  <CardDescription>2023</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Avatar className="mb-4">
-                    <AvatarImage src="https://www.antero.pt/imgs/produtos/gd_2023_Yamaha_XTZ700SP_EU_Heritage_White_Studio_001_03.jpg" />
-                    <AvatarFallback>
-                      <Skeleton className="w-full h-full animate-pulse" />
-                    </AvatarFallback>
-                  </Avatar>
-                </CardContent>
-                <CardFooter>
-                  <p>Eduardo Amorim</p>
-                </CardFooter>
-              </Card>
-            </div>
-
-            <div className="aspect-square rounded-xl bg-muted/50 hover:shadow-lg hover:scale-105 transition-shadow duration-300">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Yamaha Ténéré </CardTitle>
-                  <CardDescription>2023</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Avatar className="mb-4">
-                    <AvatarImage src="https://www.antero.pt/imgs/produtos/gd_2023_Yamaha_XTZ700SP_EU_Heritage_White_Studio_001_03.jpg" />
-                    <AvatarFallback>
-                      <Skeleton className="w-full h-full" />
-                    </AvatarFallback>
-                  </Avatar>
-                </CardContent>
-                <CardFooter>
-                  <p>Eduardo Amorim</p>
-                </CardFooter>
-              </Card>
-            </div>
           </div>
         </div>      
       </SidebarInset>

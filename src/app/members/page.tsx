@@ -41,7 +41,7 @@ import { Separator } from "@/components/ui/separator"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar"
 import { Avatar } from "@/components/ui/avatar" 
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from "@/components/ui/dialog"
 import { Label } from "@/components/ui/label"
 
 
@@ -255,7 +255,6 @@ export const columns: ColumnDef<Member>[] = [
             <DropdownMenuSeparator />
             <Dialog>
   
-            {/*comeca teste*/}      
             <DialogTrigger asChild>
             <button className="relative flex cursor-default select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent hover:bg-accent w-full justify-start focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&>svg]:size-4 [&>svg]:shrink-0">
               Editar membro
@@ -295,14 +294,68 @@ export const columns: ColumnDef<Member>[] = [
                   className="col-span-3"
                 />
               </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="email" className="text-right">
+                  Telefone
+                </Label>
+                <Input
+                  id="email"
+                  value={member.telefone}
+                  onChange={(e) => {
+                    const newUsername = e.target.value;
+                  }}
+                  className="col-span-3"
+                />
+              </div>
             </div>
             <DialogFooter>
               <Button type="submit">Salvar</Button>
             </DialogFooter>
           </DialogContent>
         </Dialog>
-        {/*acaba teste*/}
-            <DropdownMenuItem>Ver detalhes do membro</DropdownMenuItem>
+            {/* Ver detalhe do membro */}
+
+          <Dialog>
+            <DialogTrigger asChild>
+            <button className="relative flex cursor-default select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent hover:bg-accent w-full justify-start focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&>svg]:size-4 [&>svg]:shrink-0">
+              Ver perfil
+            </button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[425px]">
+            <DialogHeader>
+              <DialogTitle>Perfil do Membro</DialogTitle>
+            </DialogHeader>
+            <div className="grid gap-4 py-4">
+              <div className="flex items-center gap-4">
+              <Avatar className="w-16 h-16 justify-center bg-slate-100 items-center">
+                {(member.nome as string)[0]}
+              </Avatar>
+              <div>
+                <div className="text-lg font-medium">{member.nome}</div>
+                <div className="text-sm text-muted-foreground">{member.email}</div>
+              </div>
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="telefone" className="text-right">
+                Telefone
+              </Label>
+              <div className="col-span-3">{member.telefone}</div>
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="dataInscricao" className="text-right">
+                Data de Inscrição
+              </Label>
+              <div className="col-span-3">{member.dataInscricao}</div>
+              </div>
+            </div>
+            <DialogFooter>
+            <DialogClose asChild>
+              <Button>Fechar</Button>
+            </DialogClose>
+            </DialogFooter>
+            </DialogContent>
+          </Dialog>
+          {/* Fim Ver detalhe do membro */}
           </DropdownMenuContent>
         </DropdownMenu>
 
