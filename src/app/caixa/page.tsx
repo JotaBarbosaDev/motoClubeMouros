@@ -22,7 +22,7 @@ const products = {
     ],
     bebidas: [
         { id: 3, name: 'Coca Cola', price: 2, image: 'https://maissabor.pt/cdn/shop/products/3200000216_COCA-COLA_LATA_33CL_1f1313f6-ef7c-4df0-ad1f-48058002b580_1024x1024@2x.jpg' },
-        { id: 4, name: 'Suco de Laranja', price: 3, image: 'https://pt.rc-cdn.community.thermomix.com/recipeimage/31fg2kvg-79bae-258946-d2857-nj3hy0rw/ef53e9e1-72d2-4ea8-9310-d47efd3b038b/main/sumo-revigorante-de-laranja-manga-e-cenoura-com-espinafres.png' },
+        { id: 4, name: 'Sumo de Laranja', price: 3, image: 'https://pt.rc-cdn.community.thermomix.com/recipeimage/31fg2kvg-79bae-258946-d2857-nj3hy0rw/ef53e9e1-72d2-4ea8-9310-d47efd3b038b/main/sumo-revigorante-de-laranja-manga-e-cenoura-com-espinafres.png' },
         { id: 12, name: 'Água', price: 1, image: 'https://static.staples.pt/resources/medias/shop/products/thumbnails/shop-image-342/shop-607629--1.jpg' },
         { id: 18, name: 'Ice Tea', price: 1.5, image: 'https://tomas.ltd/wp-content/uploads/2023/11/0003871_ice-tea-lipton-pessego-lata-33cl_550.jpeg' }
     ],
