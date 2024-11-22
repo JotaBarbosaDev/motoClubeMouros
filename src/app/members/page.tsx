@@ -40,7 +40,7 @@ import { SidebarTrigger } from "@/components/ui/sidebar"
 import { Separator } from "@/components/ui/separator"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar"
-import { Avatar } from "@/components/ui/avatar" 
+import { Avatar, AvatarImage } from "@/components/ui/avatar" 
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from "@/components/ui/dialog"
 import { Label } from "@/components/ui/label"
 
@@ -190,7 +190,7 @@ export const columns: ColumnDef<Member>[] = [
     cell: ({ row }) => (
       <div className="flex items-center">
         <Avatar className="flex items-center justify-center border w-7 h-7">
-          {(row.getValue("nome") as string)[0]}
+        <AvatarImage src="https://github.com/shadcn.png" className='rounded-full'/>
         </Avatar>
         <span className="ml-2">{row.getValue("nome")}</span>
       </div>
@@ -330,6 +330,7 @@ export const columns: ColumnDef<Member>[] = [
             <div className="grid gap-4 py-4">
               <div className="flex items-center gap-4">
               <Avatar className="w-16 h-16 justify-center bg-slate-100 items-center">
+              <AvatarImage src="https://github.com/shadcn.png" className='rounded-full'/>
                 {(member.nome as string)[0]}
               </Avatar>
               <div>

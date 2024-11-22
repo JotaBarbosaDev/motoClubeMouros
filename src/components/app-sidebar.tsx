@@ -41,7 +41,7 @@ const data = {
   navMain: [
     {
       title: "Estatísticas",
-      url: "/",
+      url: "/dashboard",
       icon: PieChart,
       isActive: false,
       items: [
@@ -82,39 +82,7 @@ const data = {
         {
           title: "Ver tudo",
           url: "/inventory",
-        },
-        {
-          title: "Material de cozinha",
-          url: "/inventario/cozinha",
-        },
-        {
-          title: "Material de bar",
-          url: "/inventario/bar",
-        },
-        {
-          title: "Material de escritório",
-          url: "/inventario/escritorio",
-        },
-        {
-          title: "Material de limpeza",
-          url: "/inventario/limpeza",
-        },
-        {
-          title: "Material de decoração",
-          url: "/inventario/decoracao",
-        },
-        {
-          title: "Equipamento de som",
-          url: "/inventario/som",
-        },
-        {
-          title: "Lembranças",
-          url: "/inventario/lembrancas",
-        },
-        {
-          title: "Outros",
-          url: "/inventario/outros",
-        },
+        }
       ],
     },
     {
@@ -123,37 +91,9 @@ const data = {
       icon: Bike,
       items: [
         {
-          title: "Todas",
+          title: "Motas",
           url: "/garage",
-        },
-        {
-          title: "Naked",
-          url: "/garage/naked",
-        },
-        {
-          title: "Touring",
-          url: "/garage/touring",
-        },
-        {
-          title: "Sport",
-          url: "/garage/sport",
-        },
-        {
-          title: "Custom",
-          url: "/garage/custom",
-        },
-        {
-          title: "Offroad",
-          url: "/garage/offroad",
-        },
-        {
-          title: "Scooter",
-          url: "/garage/scooter",
-        },
-        {
-          title: "Clássicas",
-          url: "/garage/classicas",
-        },
+        }
       ],
     },
     {
@@ -163,11 +103,11 @@ const data = {
       items: [
         {
           title: "Visitamos",
-          url: "/visitas/visitamos",
+          url: "/",
         },
         {
           title: "Recebemos",
-          url: "/visitas/recebemos",
+          url: "/",
         },
       ],
     },
@@ -196,17 +136,21 @@ const data = {
       icon: BeerIcon,
       items: [
         {
-          title: "Bebidas",
-          url: "/bar/bebidas",
+          title: "Caixa",
+          url: "/caixa",
         },
         {
-          title: "Comidas",
-          url: "/bar/comidas",
+          title: "Preçario",
+          url: "/loja/vendas",
+        },
+        {
+          title: "Produtos",
+          url: "/loja/stock",
         },
         {
           title: "Stock",
-          url: "/bar/stock",
-        },
+          url: "/",
+        }
       ],
     }
   ],
