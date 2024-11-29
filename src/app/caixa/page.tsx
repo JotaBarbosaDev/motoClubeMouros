@@ -65,11 +65,11 @@ const CaixaPage: React.FC = () => {
     const removeProduct = (productId: number) => {
         const index = selectedProducts.findIndex(p => p.id === productId);
         if (index !== -1) {
-            const newSelectedProducts = [...selectedProducts];
+            const newSelectedProducts = [...selectedProducts];  
             newSelectedProducts.splice(index, 1);
             setSelectedProducts(newSelectedProducts);
         }
-    };
+    };  
 
     const getTotal = () => {
         return selectedProducts.reduce((total, product) => total + product.price, 0).toFixed(2);
@@ -77,7 +77,8 @@ const CaixaPage: React.FC = () => {
 
     const handleCheckout = () => {
         if (selectedProducts.length === 0) {
-            toast.error("A lista de compras está vazia!");
+            toast.warning("A lista de compras está vazia!");
+            
             return;
         }
         toast("Compra concluída!");

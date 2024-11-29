@@ -15,7 +15,14 @@ import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, Dialog
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Select, SelectTrigger, SelectContent, SelectGroup, SelectLabel, SelectItem, SelectValue } from '@/components/ui/select';
+import { toast } from "sonner"
+import { PiEngine } from "react-icons/pi";
 
+
+
+function handleSaveEvent(){
+  toast.success("Participante inscrito com sucesso!");
+}
 
 const CaixaPage = () => {
     
@@ -79,19 +86,19 @@ const CaixaPage = () => {
             <Label htmlFor="name" className="text-right">
               Name
             </Label>
-            <Input id="name" value="" className="col-span-3" />
+            <Input id="name" className="col-span-3" />
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="marca" className="text-right">
               Marca
             </Label>
-            <Input id="marca" value="" className="col-span-3" />
+            <Input id="marca" className="col-span-3" />
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="modelo" className="text-right">
               Modelo
             </Label>
-            <Input id="modelo" value="" className="col-span-3" />
+            <Input id="modelo" className="col-span-3" />
           </div>
         <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="tipo" className="text-right">
@@ -113,42 +120,57 @@ const CaixaPage = () => {
         </div>
         </div>
         <DialogFooter>
-          <Button type="submit">Save changes</Button>
+          <Button type="submit" onClick={handleSaveEvent}>Save changes</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
                         </div>
                         
                         <h3 className="text-xl font-bold mt-6 mb-2 my-20">Lista de Inscritos</h3>
-                        <ul className="space-y-4">
-                            <li className="p-4 bg-white rounded-lg shadow-md flex items-center gap-4">
-                                <img src="https://github.com/shadcn.png" alt="João Barbosa" className="w-16 h-16 rounded-full border-2 border-gray-300 bg-cover" />
-                                <div className="flex flex-col justify-between w-full">
+                        <ul className="space-y-4 flex gap-4 flex-wrap">
+                            <li className="p-4 bg-white rounded-lg shadow-md flex items-center gap-4 max-w-fit">
+                                <div className="flex flex-col justify-between">
                                     <div className="flex justify-between items-center">
                                         <div>
                                             <p className="font-semibold text-lg">João Barbosa</p>
                                             <p className="text-sm text-gray-500">Yamaha Ténéré</p>
                                         </div>
-                                        <Badge className="ml-2"><GiFallingRocks className='w-4 h-4 mr-1' />Trail</Badge>
+                                        <Badge className="ml-2"><GiFallingRocks className='w-4 h-4 mr-1' />Off-Road</Badge>
+                                        <Badge className="ml-2"><PiEngine className='w-3 h-4 mr-1' />700cc</Badge>
+
                                     </div>
                                     <img src="https://www.antero.pt/imgs/produtos/gd_2023_Yamaha_XTZ700SP_EU_Heritage_White_Studio_001_03.jpg" alt="Moto" className="w-full h-32 rounded-md mt-2 object-cover" />
                                 </div>
                             </li>
-                            <li className="p-4 bg-white rounded-lg shadow-md flex items-center gap-4">
-                                <img src="https://github.com/shadcn.png" alt="João Barbosa" className="w-16 h-16 rounded-full border-2 border-gray-300" />
+                            <li className="p-4 bg-white rounded-lg shadow-md flex items-center gap-4 max-w-fit">
                                 <div className="flex flex-col justify-between w-full">
                                     <div className="flex justify-between items-center">
                                         <div>
                                             <p className="font-semibold text-lg">João Barbosa</p>
-                                            <p className="text-sm text-gray-500">Yamaha Ténéré</p>
+                                            <p className="text-sm text-gray-500">Zundapp Famel</p>
                                         </div>
-                                        <Badge className="ml-2"><GiFallingRocks className='w-4 h-4 mr-1' />Trail</Badge>
+                                        <Badge className="ml-2"><FaMotorcycle  className='w-4 h-4 mr-1' />Antiga</Badge>
+                                        <Badge className="ml-2"><PiEngine className='w-3 h-4 mr-1' />50cc</Badge>
+
                                     </div>
                                     <img src="https://epvalongo.com/wp-content/uploads/2021/02/placeholder.png" alt="Moto" className="w-full h-32 rounded-md mt-2 object-cover" />
                                 </div>
                             </li>
-                            <li className="p-4 bg-white rounded-lg shadow-md flex items-center gap-4">
-                                <img src="https://github.com/shadcn.png" alt="Maria Silva" className="w-16 h-16 rounded-full border-2 border-gray-300" />
+                            <li className="p-4 bg-white rounded-lg shadow-md flex items-center gap-4 max-w-fit">
+                                <div className="flex flex-col justify-between w-full">
+                                    <div className="flex justify-between items-center">
+                                        <div>
+                                            <p className="font-semibold text-lg">João Barbosa</p>
+                                            <p className="text-sm text-gray-500">Yamaha XJ6</p>
+                                        </div>
+                                        <Badge className="ml-2"><GiRoad className='w-4 h-4 mr-1' />Street</Badge>
+                                        <Badge className="ml-2"><PiEngine className='w-3 h-4 mr-1' />600cc</Badge>
+
+                                    </div>
+                                    <img src="https://epvalongo.com/wp-content/uploads/2021/02/placeholder.png" alt="Moto" className="w-full h-32 rounded-md mt-2 object-cover" />
+                                </div>
+                            </li>
+                            <li className="p-4 bg-white rounded-lg shadow-md flex items-center gap-4 max-w-fit">
                                 <div className="flex flex-col justify-between w-full">
                                     <div className="flex justify-between items-center">
                                         <div>
@@ -156,12 +178,13 @@ const CaixaPage = () => {
                                             <p className="text-sm text-gray-500">Honda CBR600RR</p>
                                         </div>
                                         <Badge className="ml-2"><GiRoad className='w-4 h-4 mr-1' />Estrada</Badge>
+                                        <Badge className="ml-2"><PiEngine className='w-3 h-4 mr-1' />600cc</Badge>
+
                                     </div>
                                     <img src="https://motoveiga.pt/wp-content/uploads/2023/11/CBR600R-MOTOVEIGA-.png" alt="Moto" className="w-full h-32 rounded-md mt-2 object-cover" />
                                 </div>
                             </li>
-                            <li className="p-4 bg-white rounded-lg shadow-md flex items-center gap-4">
-                                <img src="https://github.com/shadcn.png" alt="Carlos Santos" className="w-16 h-16 rounded-full border-2 border-gray-300" />
+                            <li className="p-4 bg-white rounded-lg shadow-md flex items-center gap-4 max-w-fit">
                                 <div className="flex flex-col justify-between w-full">
                                     <div className="flex justify-between items-center">
                                         <div>
@@ -169,6 +192,7 @@ const CaixaPage = () => {
                                             <p className="text-sm text-gray-500">Royal Enfield Jawa</p>
                                         </div>
                                         <Badge className="ml-2"><FaMotorcycle className='w-4 h-4 mr-1' />Antiga</Badge>
+                                        <Badge className="ml-2"><PiEngine className='w-3 h-4 mr-1' />350cc</Badge>
                                     </div>
                                     <img src="https://moto-station.com/wp-content/uploads/2020/02/20/bullet.jpg" alt="Moto" className="w-full h-32 rounded-md mt-2 object-cover" />
                                 </div>

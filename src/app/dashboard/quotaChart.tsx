@@ -18,18 +18,18 @@ import {
     ChartTooltipContent,
 } from "@/components/ui/chart"
 const chartData = [
-    { month: "Janeiro", quota: 47, gema: 47 },
-    { month: "Fevereiro", quota: 59, gema: 12 },
-    { month: "Março", quota: 81, gema: 12 },
-    { month: "Abril", quota: 86, gema: 5 },
-    { month: "Maio", quota: 108, gema: 22 },
-    { month: "Junho", quota: 117, gema: 9 },
-    { month: "Julho", quota: 117, gema: 0 },
-    { month: "Agosto", quota: 117, gema: 0 },
-    { month: "Setembro", quota: 119, gema: 2 },
-    { month: "Outubro", quota: 127, gema: 10 },
-    { month: "Novembro", quota: 130, gema: 3 },
-    { month: "Dezembro", quota: 138, gema: 8 },
+    { month: "Janeiro", quota: 47, joia: 47 },
+    { month: "Fevereiro", quota: 59, joia: 12 },
+    { month: "Março", quota: 81, joia: 12 },
+    { month: "Abril", quota: 86, joia: 5 },
+    { month: "Maio", quota: 108, joia: 22 },
+    { month: "Junho", quota: 117, joia: 9 },
+    { month: "Julho", quota: 117, joia: 0 },
+    { month: "Agosto", quota: 117, joia: 0 },
+    { month: "Setembro", quota: 119, joia: 2 },
+    { month: "Outubro", quota: 127, joia: 10 },
+    { month: "Novembro", quota: 130, joia: 3 },
+    { month: "Dezembro", quota: 138, joia: 8 },
 ]
 
 const chartConfig = {
@@ -37,8 +37,8 @@ const chartConfig = {
         label: "Quotas",
         color: "hsl(var(--chart-1))",
     },
-    gema: {
-        label: "Gemas",
+    joia: {
+        label: "joias",
         color: "hsl(var(--chart-2))",
     },
 } satisfies ChartConfig
@@ -47,7 +47,7 @@ export function QuotaChart() {
     return (
         <Card>
             <CardHeader>
-                <CardTitle>Quotas / Gemas</CardTitle>
+                <CardTitle>Quotas / joias</CardTitle>
                 <CardDescription>Ano 2024</CardDescription>
             </CardHeader>
             <CardContent>
@@ -78,9 +78,9 @@ export function QuotaChart() {
                                 dot={false}
                             />
                             <Line
-                                dataKey="gema"
+                                dataKey="joia"
                                 type="monotone"
-                                stroke="var(--color-gema)"
+                                stroke="var(--color-joia)"
                                 strokeWidth={2}
                                 dot={false}
                             />

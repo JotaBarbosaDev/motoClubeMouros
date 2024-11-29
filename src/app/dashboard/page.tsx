@@ -3,13 +3,6 @@ import {
   SidebarInset,
   SidebarProvider,
 } from "@/components/ui/sidebar"
-
-import Members from "../members/page"
-import Statistics from "@/app/estatisticas/page"
-import Inventory from "../inventory/page"
-import Garage from "../garage/page"
-import Visit from "../visit/page"
-import Visited from "../visited/page"
 import { SidebarTrigger } from "@/components/ui/sidebar"
 import { Separator } from "@/components/ui/separator"
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';

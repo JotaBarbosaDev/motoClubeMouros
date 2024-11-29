@@ -90,7 +90,7 @@ export default function Garage(){
                 
                 <Badge><GiRoad className='w-3 h-3 mx-1'/>Street</Badge>
               </div>
-              <Badge>600cc</Badge>
+              <Badge>1000cc</Badge>
               </div>
               </CardHeader>
               <CardContent>
@@ -101,7 +101,7 @@ export default function Garage(){
               </Avatar>
               <p>Ricardo Rodrigues</p>
               </div>
-              <CardTitle>Honda CBR600RR</CardTitle>
+              <CardTitle>Honda CBR1000RR</CardTitle>
               <CardDescription>2018</CardDescription>
               </CardContent>
               </Card>
@@ -111,7 +111,7 @@ export default function Garage(){
               <Card>
               <CardHeader>
               <Avatar className="mb-4 w-full h-48">
-              <AvatarImage src="https://moto-station.com/wp-content/uploads/2020/02/20/bullet.jpg" className="object-cover w-full h-full" />
+              <AvatarImage src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg0_jSImXXBrGSTryTN9ih53SA-V8EtZAdUdBx-WU5TYEdvDLHQ2uBxLWfrVNYYVrW84q7OsvhMXZYZkOLtPBufnZxJaU8TEDHZDpXz2rPkhUuu9zDceE93l9z95yweL4wr6Z8nTiJb4qFw/s1600/Jawa_353_250_cc_1958.jpg" className="object-cover w-full h-full" />
               <AvatarFallback>
                 <Skeleton className="w-full h-full" />
               </AvatarFallback>
@@ -166,6 +166,37 @@ export default function Garage(){
               </div>
               <CardTitle>Yamaha Ténéré</CardTitle>
               <CardDescription>2023</CardDescription>
+              </CardContent>
+              </Card>
+            </div>
+
+            <div className="aspect-square sm:aspect-auto rounded-xl bg-muted/50 hover:shadow-lg">
+              <Card>
+              <CardHeader>
+              <Avatar className="mb-4 w-full h-48">
+              <AvatarImage src="https://www.rentriders.pt/wp-content/uploads/2020/07/Honda-CB500X-@-RentRiders.Pt_.webp" className="object-cover w-full h-full" />
+              <AvatarFallback>
+                <Skeleton className="w-full h-full" />
+              </AvatarFallback>
+              </Avatar>
+              <div className="flex justify-between items-center mt-2">
+              <div className="flex items-center">
+                
+                <Badge><GiFallingRocks className='w-3 h-3 mx-1'/>Off-road</Badge>
+              </div>
+              <Badge>500cc</Badge>
+              </div>
+              </CardHeader>
+              <CardContent>
+              <div className="flex items-center gap-2 mb-2">
+              <Avatar className="w-8 h-8">
+                <AvatarImage src="https://github.com/shadcn.png" className='rounded-full'/>
+                <AvatarFallback>DL</AvatarFallback>
+              </Avatar>
+              <p>Ricardo Gonçalves</p>
+              </div>
+              <CardTitle>Honda CB500X</CardTitle>
+              <CardDescription>2019</CardDescription>
               </CardContent>
               </Card>
             </div>

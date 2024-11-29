@@ -157,7 +157,7 @@ const data = {
   events: [
     {
       name: "1º Passeio Pais Natais",
-      url: "/eventos/passeio-pais-natais",
+      url: "/evento",
       icon: CandyCane,
     },
     {
