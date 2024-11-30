@@ -103,7 +103,7 @@ const data = {
       items: [
         {
           title: "Visitamos",
-          url: "/",
+          url: "/visits",
         },
         {
           title: "Recebemos",
