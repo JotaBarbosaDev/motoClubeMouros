@@ -156,14 +156,14 @@ const data = {
   ],
   events: [
     {
-      name: "1º Passeio Pais Natais",
-      url: "/evento",
-      icon: CandyCane,
-    },
-    {
       name: "Aniversario 2024",
       url: "/eventos/aniversario-2024",
       icon: Cake,
+    },
+    {
+      name: "1º Renas do aço",
+      url: "/evento",
+      icon: CandyCane,
     },
     {
       name: "1ª Concentração",
