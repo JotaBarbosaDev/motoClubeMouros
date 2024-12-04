@@ -15,16 +15,12 @@ import { Toaster } from "@/components/ui/sonner"
 
 const products = {
     cafetaria: [
-        { id: 1, name: 'Café', price: .65, image: 'https://i.em.com.br/6L8tTUsN-zLZoXMm1AFXfJmS1cg=/750x0/smart/imgsapp.em.com.br/app/noticia_127983242361/2023/10/03/1570587/ilustracao_1_17925.jpg' },
-        { id: 2, name: 'Pão de Deus', price: 2, image: 'https://europastry.com/pt/wp-content/uploads/sites/6/2023/03/image-removebg-preview-73.png' },
-        {id: 11, name: 'Pastel de Nata', price: 1, image: 'https://www.panidor.pt/zArchives/Products/131/Photos/pastel_nata_fre_ref155098%20copy.png'},
-        {id: 16, name: 'Croissant', price: 1.5, image: 'https://www.delifrance.com/media/catalog/product/cache/ed41ce533cfbede5bade0f10745f47a1/1/9/19477_1.jpg'}
+        { id: 1, name: 'Café', price: .60, image: 'https://i.em.com.br/6L8tTUsN-zLZoXMm1AFXfJmS1cg=/750x0/smart/imgsapp.em.com.br/app/noticia_127983242361/2023/10/03/1570587/ilustracao_1_17925.jpg' },
     ],
     bebidas: [
-        { id: 3, name: 'Coca Cola', price: 2, image: 'https://maissabor.pt/cdn/shop/products/3200000216_COCA-COLA_LATA_33CL_1f1313f6-ef7c-4df0-ad1f-48058002b580_1024x1024@2x.jpg' },
-        { id: 4, name: 'Sumo de Laranja', price: 3, image: 'https://pt.rc-cdn.community.thermomix.com/recipeimage/31fg2kvg-79bae-258946-d2857-nj3hy0rw/ef53e9e1-72d2-4ea8-9310-d47efd3b038b/main/sumo-revigorante-de-laranja-manga-e-cenoura-com-espinafres.png' },
+        { id: 3, name: 'Coca Cola', price: 1, image: 'https://maissabor.pt/cdn/shop/products/3200000216_COCA-COLA_LATA_33CL_1f1313f6-ef7c-4df0-ad1f-48058002b580_1024x1024@2x.jpg' },
+        { id: 4, name: '7Up', price: 1, image: 'https://maissabor.pt/cdn/shop/products/3200000707_SEVEN-UP-LATA-33CL_95fc48ef-67ab-4aac-8c85-68e1551fc249_1024x1024@2x.png?v=1612805448' },
         { id: 12, name: 'Água', price: 1, image: 'https://static.staples.pt/resources/medias/shop/products/thumbnails/shop-image-342/shop-607629--1.jpg' },
-        { id: 18, name: 'Ice Tea', price: 1.5, image: 'https://tomas.ltd/wp-content/uploads/2023/11/0003871_ice-tea-lipton-pessego-lata-33cl_550.jpeg' }
     ],
     comida: [
         { id: 5, name: 'Hambúrguer', price: 5, image: 'https://cdn.awsli.com.br/2500x2500/2744/2744742/produto/269001231/foto-hamb-rguer-qfk004osha.png' },
@@ -33,16 +29,16 @@ const products = {
         { id: 17, name: 'Tosta Mista', price: 2, image: 'https://i.pinimg.com/736x/15/14/6a/15146a52e2f8c784d239191c0d30dd11.jpg' }
     ],
     snack: [
-        { id: 7, name: 'Batata Frita', price: 2, image: 'https://www.continente.pt/dw/image/v2/BDVS_PRD/on/demandware.static/-/Sites-col-master-catalog/default/dw926dc0dd/images/col/737/7379477-hero.png' },  
-        { id: 8, name: 'Amendoim', price: 1, image: 'https://img.freepik.com/fotos-premium/uma-pilha-de-amendoins-com-a-palavra-amendoim-ao-lado_667286-791.jpg' },
-        { id: 14, name: 'Bolachas', price: 1, image: 'https://i0.wp.com/www.ateti.pt/loja/wp-content/uploads/2021/03/Bolacha_Digestiva_Vieira_12un._Ate_Ti.jpg' },
-        { id: 19, name: 'Pipocas', price: 1.5, image: 'https://static6.depositphotos.com/1008244/609/v/600/depositphotos_6097085-stock-illustration-popcorn-in-a-striped-tub.jpg' }
+        { id: 7, name: 'Batata Frita', price: 1, image: 'https://www.continente.pt/dw/image/v2/BDVS_PRD/on/demandware.static/-/Sites-col-master-catalog/default/dw926dc0dd/images/col/737/7379477-hero.png' },  
+        { id: 8, name: 'Amendoim', price: .20, image: 'https://i.ibb.co/JqJJPQn/DALL-E-2024-12-03-16-53-18-A-hyper-realistic-image-of-a-small-saucer-with-shelled-peanuts-on-a-rusti.webp' },
+        { id: 19, name: 'Croissant Chocolate Un', price: 0.6, image: 'https://s2.minipreco.pt/medias/hf0/hd9/8996564664350.jpg' }
     ],
     bebidasAlcoolicas: [
-        { id: 9, name: 'Cerveja', price: 1.5, image: 'https://www.madeinmarket.eu/cdn/shop/products/6876536_cerveja-com-alcool-mini-super-bock-20cl_550.png' },
-        { id: 10, name: 'Vinho', price: 3, image: 'https://brilato.pt/image/cache/catalog/RIEDEL2013/RIEDEL_2017/6416-60-riedel-vinum-port-brilato-600x800.png' },
-        { id: 15, name: 'Gin', price: 5, image: 'https://cdn.tescoma.com/content/images/product/copo-de-gin-tonic-charlie-640-ml_147406.jpg' },
-        { id: 20, name: 'Whisky', price: 8, image: 'https://www.ecopack.pt/WebRoot/Store/Shops/3699-200805/5F45/4C81/49F4/E576/B9D3/25E6/6498/24DC/M711-PC-Copo_Plastico_WHISKY_INQUEBRAVEL-slide1_ml.jpg'}
+        { id: 9, name: 'Cerveja', price: 1, image: 'https://www.madeinmarket.eu/cdn/shop/products/6876536_cerveja-com-alcool-mini-super-bock-20cl_550.png' },
+        { id: 11, name: 'Martini', price: 0.8, image: 'https://www.gourmetencasa-tcm.com/19675-thickbox_default/martini-rosso-6cl.jpg' },
+        { id: 10, name: 'Martini c/Cerveja', price: 1.5, image: 'https://i.ibb.co/1m7h7mQ/DALL-E-2024-12-03-16-45-01-A-hyper-realistic-image-of-a-tall-glass-of-beer-with-a-frothy-head-placed.webp' },
+        { id: 15, name: 'Porto', price: 1, image: 'https://e-dega.com/feghozyw/2020/04/calice-viticole-215ml-vinho-do-porto-e-licorosos.jpg' },
+        { id: 20, name: 'Whisky', price: 2, image: 'https://www.ecopack.pt/WebRoot/Store/Shops/3699-200805/5F45/4C81/49F4/E576/B9D3/25E6/6498/24DC/M711-PC-Copo_Plastico_WHISKY_INQUEBRAVEL-slide1_ml.jpg'}
     ],
 };
 

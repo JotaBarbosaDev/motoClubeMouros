@@ -255,7 +255,6 @@ export default function Garage(){
               <Avatar className="mb-4 w-full h-48">
               <AvatarImage src="https://cdn2.yamaha-motor.eu/prod/product-assets/2024/XTZ700/2024-Yamaha-XTZ700-EU-Icon_Blue-360-Degrees-001-03.jpg" className="object-cover w-full h-full" />
               <AvatarFallback>
-                <Skeleton className="w-full h-full" />
               </AvatarFallback>
               </Avatar>
               <div className="flex justify-between items-center mt-2">

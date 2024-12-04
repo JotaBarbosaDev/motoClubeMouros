@@ -39,7 +39,7 @@ export function NavProjects({
 
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
-      <SidebarGroupLabel>Agenda</SidebarGroupLabel>
+      <SidebarGroupLabel>Eventos</SidebarGroupLabel>
       <SidebarMenu>
         {events.map((item) => (
           <SidebarMenuItem key={item.name}>
@@ -66,10 +66,6 @@ export function NavProjects({
                   <span>Ver Evento</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <ClipboardPen className="text-muted-foreground" />
-                  <span>Inscrições</span>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
                   <Forward className="text-muted-foreground" />
                   <span>Partilhar</span>
                 </DropdownMenuItem> 
@@ -82,12 +78,6 @@ export function NavProjects({
             </DropdownMenu>
           </SidebarMenuItem>
         ))}
-        <SidebarMenuItem>
-          <SidebarMenuButton className="text-sidebar-foreground/70">
-            <MoreHorizontal className="text-sidebar-foreground/70" />
-            <span>Ver tudo</span>
-          </SidebarMenuButton>
-        </SidebarMenuItem>
       </SidebarMenu>
     </SidebarGroup>
   )
