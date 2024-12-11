@@ -5,6 +5,16 @@ import { Input } from "@/components/ui/input"
 import { Select } from "@/components/ui/select"
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table"
 import { Button } from "@/components/ui/button"
+import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbPage } from "@/components/ui/breadcrumb"
+import { Separator } from "@/components/ui/separator"
+import {
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
+} from "@/components/ui/sidebar"
+import { AppSidebar } from '@/components/app-sidebar';
+
+
 
 export default function Component() {
   const [searchTerm, setSearchTerm] = useState("")
@@ -83,6 +93,188 @@ export default function Component() {
       timestamp: "2023-04-24 11:35:00",
       details: 'Ticket ID: "#1234"',
     },
+    {
+      id: 11,
+      user: "Samantha Thompson",
+      action: "Closed support ticket",
+      timestamp: "2023-04-24 11:35:00",
+      details: 'Ticket ID: "#1234"',
+    },
+    {
+      id: 12,
+      user: "Samantha Thompson",
+      action: "Closed support ticket",
+      timestamp: "2023-04-24 11:35:00",
+      details: 'Ticket ID: "#1234"',
+    },
+    {
+      id: 13,
+      user: "John Doe",
+      action: "Created new project",
+      timestamp: "2023-04-15 10:30:00",
+      details: 'Project name: "Acme Inc. Website"',
+    },
+    {
+      id: 14,
+      user: "Jane Smith",
+      action: "Uploaded file",
+      timestamp: "2023-04-16 14:20:00",
+      details: 'File name: "design_mockup.pdf"',
+    },
+    {
+      id: 15,
+      user: "Bob Johnson",
+      action: "Deleted user account",
+      timestamp: "2023-04-17 09:45:00",
+      details: 'Username: "jdoe"',
+    },
+    {
+      id: 16,
+      user: "Sarah Lee",
+      action: "Edited team member",
+      timestamp: "2023-04-18 16:10:00",
+      details: 'User: "Jane Smith", Role: "Developer"',
+    },
+    {
+      id: 17,
+      user: "Tom Wilson",
+      action: "Commented on task",
+      timestamp: "2023-04-19 11:25:00",
+      details: 'Task: "Implement new feature"',
+    },
+    {
+      id: 18,
+      user: "Emily Davis",
+      action: "Archived project",
+      timestamp: "2023-04-20 13:50:00",
+      details: 'Project name: "Legacy System Upgrade"',
+    },
+    {
+      id: 19,
+      user: "Michael Brown",
+      action: "Invited new user",
+      timestamp: "2023-04-21 15:00:00",
+      details: 'Email: "jsmith@acme.com"',
+    },
+    {
+      id: 20,
+      user: "Jessica Taylor",
+      action: "Completed task",
+      timestamp: "2023-04-22 09:10:00",
+      details: 'Task: "Design new homepage layout"',
+    },
+    {
+      id: 21,
+      user: "David Anderson",
+      action: "Assigned task",
+      timestamp: "2023-04-23 14:40:00",
+      details: 'Task: "Implement search functionality", Assignee: "Jane Smith"',
+    },
+    {
+      id: 22,
+      user: "Samantha Thompson",
+      action: "Closed support ticket",
+      timestamp: "2023-04-24 11:35:00",
+      details: 'Ticket ID: "#1234"',
+    },
+    {
+      id: 23,
+      user: "Samantha Thompson",
+      action: "Closed support ticket",
+      timestamp: "2023-04-24 11:35:00",
+      details: 'Ticket ID: "#1234"',
+    },
+    {
+      id: 24,
+      user: "Samantha Thompson",
+      action: "Closed support ticket",
+      timestamp: "2023-04-24 11:35:00",
+      details: 'Ticket ID: "#1234"',
+    },
+    {
+      id: 25,
+      user: "John Doe",
+      action: "Created new project",
+      timestamp: "2023-04-15 10:30:00",
+      details: 'Project name: "Acme Inc. Website"',
+    },
+    {
+      id: 26,
+      user: "Jane Smith",
+      action: "Uploaded file",
+      timestamp: "2023-04-16 14:20:00",
+      details: 'File name: "design_mockup.pdf"',
+    },
+    {
+      id: 27,
+      user: "Bob Johnson",
+      action: "Deleted user account",
+      timestamp: "2023-04-17 09:45:00",
+      details: 'Username: "jdoe"',
+    },
+    {
+      id: 28,
+      user: "Sarah Lee",
+      action: "Edited team member",
+      timestamp: "2023-04-18 16:10:00",
+      details: 'User: "Jane Smith", Role: "Developer"',
+    },
+    {
+      id: 29,
+      user: "Tom Wilson",
+      action: "Commented on task",
+      timestamp: "2023-04-19 11:25:00",
+      details: 'Task: "Implement new feature"',
+    },
+    {
+      id: 30,
+      user: "Emily Davis",
+      action: "Archived project",
+      timestamp: "2023-04-20 13:50:00",
+      details: 'Project name: "Legacy System Upgrade"',
+    },
+    {
+      id: 31,
+      user: "Michael Brown",
+      action: "Invited new user",
+      timestamp: "2023-04-21 15:00:00",
+      details: 'Email: "jsmith@acme.com"',
+    },
+    {
+      id: 32,
+      user: "Jessica Taylor",
+      action: "Completed task",
+      timestamp: "2023-04-22 09:10:00",
+      details: 'Task: "Design new homepage layout"',
+    },
+    {
+      id: 33,
+      user: "David Anderson",
+      action: "Assigned task",
+      timestamp: "2023-04-23 14:40:00",
+      details: 'Task: "Implement search functionality", Assignee: "Jane Smith"',
+    },
+    {
+      id: 34,
+      user: "Samantha Thompson",
+      action: "Closed support ticket",
+      timestamp: "2023-04-24 11:35:00",
+      details: 'Ticket ID: "#1234"',
+    },
+    {
+      id: 35,
+      user: "Samantha Thompson",
+      action: "Closed support ticket",
+      timestamp: "2023-04-24 11:35:00",
+      details: 'Ticket ID: "#1234"',
+    },
+    {
+      id: 36,
+      user: "Samantha Thompson",
+      action: "Closed support ticket",
+      timestamp: "2023-04-24 11:35:00",
+      details: 'Ticket ID: "#1234"',
+    },
   ]
   const filteredLogs = activityLogs.filter(
     (log) =>
@@ -115,6 +307,30 @@ export default function Component() {
     setCurrentPage(page)
   }
   return (
+    <SidebarProvider>
+      <AppSidebar />
+    <SidebarInset>
+      <div>
+    <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
+    <div className="flex items-center gap-2 px-4">
+      <SidebarTrigger className="-ml-1" />
+      <Separator orientation="vertical" className="mr-2 h-4" />
+      <Breadcrumb>
+        <BreadcrumbList>
+          <BreadcrumbItem className="hidden md:block">
+            <BreadcrumbLink href="#">
+              Eventos
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator className="hidden md:block" />
+          <BreadcrumbItem>
+            <BreadcrumbPage>Tudo</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+    </div>
+  </header>
+  </div>
     <div className="p-6 md:p-8 lg:p-10">
       <div className="mb-6 flex items-center justify-between">
         <h1 className="text-2xl font-bold">Activity Log</h1>
@@ -129,14 +345,15 @@ export default function Component() {
               className="pl-10 pr-4 py-2 rounded-md border border-input bg-background focus:border-primary focus:outline-none"
             />
           </div>
-          <Select
+          <select
             value={itemsPerPage.toString()}
-            onValueChange={(value: string) => setItemsPerPage(Number(value))}
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setItemsPerPage(Number(e.target.value))}
+            className="w-32"
           >
-            <option value={10}>10 per page</option>
-            <option value={20}>20 per page</option>
-            <option value={50}>50 per page</option>
-          </Select>
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+          </select>
         </div>
       </div>
       <div className="overflow-x-auto">
@@ -192,7 +409,9 @@ export default function Component() {
         </div>
       </div>
     </div>
-  )
+        </SidebarInset>
+      </SidebarProvider>
+    )
 }
 
 function SearchIcon(props: React.SVGProps<SVGSVGElement>) {

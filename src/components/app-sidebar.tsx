@@ -10,7 +10,8 @@ import {
   Archive,
   BeerIcon,
   StoreIcon,
-  MapPinHouse
+  MapPinHouse,
+  FileSpreadsheet
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
@@ -76,40 +77,18 @@ const data = {
     },
     {
       title: "Inventário",
-      url: "/inventario",
+      url: "/inventory1",
       icon: Archive,
-      items: [
-        {
-          title: "Ver tudo",
-          url: "/inventory",
-        }
-      ],
     },
     {
       title: "Garagem",
       url: "/garage",
       icon: Bike,
-      items: [
-        {
-          title: "Motas",
-          url: "/garage",
-        }
-      ],
     },
     {
       title: "Visitas",
-      url: "/visitas",
+      url: "/visits",
       icon: MapPinHouse,
-      items: [
-        {
-          title: "Visitamos",
-          url: "/visits",
-        },
-        {
-          title: "Recebemos",
-          url: "/",
-        },
-      ],
     },
     {
       title: "Loja",
@@ -152,6 +131,11 @@ const data = {
           url: "/",
         }
       ],
+    },
+    {
+      title: "Logs",
+      url: "/logs",
+      icon: FileSpreadsheet,
     }
   ],
   events: [
