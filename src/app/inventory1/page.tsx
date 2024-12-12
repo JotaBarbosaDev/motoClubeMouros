@@ -78,20 +78,6 @@ export default function Component() {
     <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
     <div className="flex items-center gap-2 px-4">
       <SidebarTrigger className="-ml-1" />
-      <Separator orientation="vertical" className="mr-2 h-4" />
-      <Breadcrumb>
-        <BreadcrumbList>
-          <BreadcrumbItem className="hidden md:block">
-            <BreadcrumbLink href="#">
-              Eventos
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator className="hidden md:block" />
-          <BreadcrumbItem>
-            <BreadcrumbPage>Tudo</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
     </div>
   </header>
   </div>
@@ -102,8 +88,8 @@ export default function Component() {
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
               <Card>
                 <CardHeader className="pb-4">
-                  <CardTitle>Total Inventory Value</CardTitle>
-                  <CardDescription>The total value of all items in stock</CardDescription>
+                  <CardTitle>Valor do Inventario</CardTitle>
+                  <CardDescription>Valor total de todo o stock</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="text-4xl font-bold">${totalValue.toFixed(2)}</div>
@@ -111,8 +97,8 @@ export default function Component() {
               </Card>
               <Card>
                 <CardHeader className="pb-4">
-                  <CardTitle>Items in Stock</CardTitle>
-                  <CardDescription>The number of items currently in stock</CardDescription>
+                  <CardTitle>Items em Stock</CardTitle>
+                  <CardDescription>Numero total de items em stock</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="text-4xl font-bold">{inStock}</div>
@@ -120,8 +106,8 @@ export default function Component() {
               </Card>
               <Card>
                 <CardHeader className="pb-4">
-                  <CardTitle>Low Stock Items</CardTitle>
-                  <CardDescription>The number of items with less than 10 in stock</CardDescription>
+                  <CardTitle>Pouco Stock</CardTitle>
+                  <CardDescription>Numero de items com menos stock</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="text-4xl font-bold">{lowStock}</div>

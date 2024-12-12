@@ -45,35 +45,11 @@ const data = {
       url: "/dashboard",
       icon: PieChart,
       isActive: false,
-      items: [
-        {
-          title: "Gerais",
-          url: '/dashboard',
-        },
-        {
-          title: "Eventos",
-          url: "/dashboard",
-        },
-      ],
     },
     {
       title: "Membros",
       url: "/members",
       icon: Users,
-      items: [
-        {
-          title: "Direção",
-          url: "/members",
-        },
-        {
-          title: "Sócios",
-          url: "/members",
-        },
-        {
-          title: "Gema / Quotas",
-          url: "/members",
-        },
-      ],
     },
     {
       title: "Inventário",
@@ -111,26 +87,8 @@ const data = {
     },
     {
       title: "Bar",
-      url: "/bar",
+      url: "/caixa",
       icon: BeerIcon,
-      items: [
-        {
-          title: "Caixa",
-          url: "/caixa",
-        },
-        {
-          title: "Preçario",
-          url: "/loja/vendas",
-        },
-        {
-          title: "Produtos",
-          url: "/loja/stock",
-        },
-        {
-          title: "Stock",
-          url: "/",
-        }
-      ],
     },
     {
       title: "Logs",

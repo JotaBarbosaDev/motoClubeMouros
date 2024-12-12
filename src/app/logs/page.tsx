@@ -313,33 +313,19 @@ export default function Component() {
       <div>
     <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
     <div className="flex items-center gap-2 px-4">
-      <SidebarTrigger className="-ml-1" />
-      <Separator orientation="vertical" className="mr-2 h-4" />
-      <Breadcrumb>
-        <BreadcrumbList>
-          <BreadcrumbItem className="hidden md:block">
-            <BreadcrumbLink href="#">
-              Eventos
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator className="hidden md:block" />
-          <BreadcrumbItem>
-            <BreadcrumbPage>Tudo</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+      <SidebarTrigger className="-ml-1" />      
     </div>
   </header>
   </div>
     <div className="p-6 md:p-8 lg:p-10">
       <div className="mb-6 flex items-center justify-between">
-        <h1 className="text-2xl font-bold">Activity Log</h1>
+        <h1 className="text-2xl font-bold">Log de atividades</h1>
         <div className="flex items-center gap-4">
           <div className="relative">
             <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
               type="text"
-              placeholder="Search..."
+              placeholder="Pesquisar..."
               value={searchTerm}
               onChange={handleSearch}
               className="pl-10 pr-4 py-2 rounded-md border border-input bg-background focus:border-primary focus:outline-none"
@@ -353,6 +339,7 @@ export default function Component() {
             <option value="10">10</option>
             <option value="20">20</option>
             <option value="50">50</option>
+            <option value="100">100</option>
           </select>
         </div>
       </div>
@@ -361,11 +348,11 @@ export default function Component() {
           <TableHeader>
             <TableRow>
               <TableHead className="cursor-pointer" onClick={() => handleSort("user")}>
-                User{" "}
+                Utilizadores{" "}
                 {sortColumn === "user" && <span className="ml-1">{sortDirection === "asc" ? "\u2191" : "\u2193"}</span>}
               </TableHead>
               <TableHead className="cursor-pointer" onClick={() => handleSort("action")}>
-                Action{" "}
+                Ação{" "}
                 {sortColumn === "action" && (
                   <span className="ml-1">{sortDirection === "asc" ? "\u2191" : "\u2193"}</span>
                 )}
@@ -376,7 +363,7 @@ export default function Component() {
                   <span className="ml-1">{sortDirection === "asc" ? "\u2191" : "\u2193"}</span>
                 )}
               </TableHead>
-              <TableHead>Details</TableHead>
+              <TableHead>Detalhes</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -393,7 +380,7 @@ export default function Component() {
       </div>
       <div className="mt-6 flex items-center justify-between">
         <div className="text-sm text-muted-foreground">
-          Showing {indexOfFirstItem + 1} to {indexOfLastItem} of {sortedLogs.length} entries
+          A mostrar {indexOfFirstItem + 1} até {indexOfLastItem} de {sortedLogs.length} entradas
         </div>
         <div className="flex items-center gap-2">
           {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
