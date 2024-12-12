@@ -14,7 +14,6 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import {
   Avatar,
-  AvatarImage,
   AvatarFallback
 } from "@/components/ui/avatar";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -24,6 +23,10 @@ import {
   SidebarTrigger
 } from "@/components/ui/sidebar";
 import { AppSidebar } from '@/components/app-sidebar';
+import dynamic from 'next/dynamic';
+
+const DummyImage = dynamic(() => import('react-simple-placeholder-image').then(mod => mod.DummyImage), { ssr: false });
+
 
 // Componente Principal
 export default function Component() {
@@ -120,8 +123,7 @@ function ProfileSection() {
         <form className="grid gap-6">
           <div className="flex items-center gap-6">
             <Avatar className="h-24 w-24">
-              <AvatarImage src="/placeholder-user.jpg" alt="Foto de Perfil" />
-              <AvatarFallback>JD</AvatarFallback>
+              <DummyImage width={250} height={250} shape="avatar" bgColor="#e5e5e5" fgColor="#fff" placeholder="JD" />
             </Avatar>
             <div className="flex flex-col gap-4">
               <Button variant="outline" className="self-start">
@@ -242,7 +244,7 @@ function SubscriptionSection() {
           <div className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 rounded-md">
             <div>
               <p className="text-sm font-medium text-gray-900 dark:text-gray-100">Plano Atual</p>
-              <p className="text-sm text-gray-500 dark:text-gray-400">Premium - Renovação em 30 dias</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">Subscrição - Renovação em 1 ano</p>
             </div>
             <Button variant="outline">
               Atualizar Plano
@@ -251,7 +253,7 @@ function SubscriptionSection() {
           <div className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 rounded-md">
             <div>
               <p className="text-sm font-medium text-gray-900 dark:text-gray-100">Histórico de Pagamentos</p>
-              <p className="text-sm text-gray-500 dark:text-gray-400">Verifique seus pagamentos anteriores.</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">Verifique os seus pagamentos anteriores.</p>
             </div>
             <Button variant="outline">
               Ver Histórico
@@ -260,7 +262,7 @@ function SubscriptionSection() {
           <div className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 rounded-md">
             <div>
               <p className="text-sm font-medium text-gray-900 dark:text-gray-100">Cancelar Assinatura</p>
-              <p className="text-sm text-gray-500 dark:text-gray-400">Cancelamento irreversível da assinatura.</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">Cancelamento irreversível.</p>
             </div>
             <Button variant="destructive" className="hover:bg-red-700">
               Cancelar Assinatura
@@ -316,14 +318,14 @@ function DuesSection() {
   return (
     <Card className="bg-white dark:bg-gray-800 shadow-md">
       <CardHeader>
-        <CardTitle className="text-xl text-gray-900 dark:text-gray-100">Taxas</CardTitle>
-        <CardDescription className="text-gray-500 dark:text-gray-400">Gerencie suas taxas e histórico de pagamentos.</CardDescription>
+        <CardTitle className="text-xl text-gray-900 dark:text-gray-100">Pagamentos</CardTitle>
+        <CardDescription className="text-gray-500 dark:text-gray-400">Gerencie os seus pagamentos e histórico.</CardDescription>
       </CardHeader>
       <CardContent>
         <div className="space-y-6">
           <div className="flex items-center justify-between p-4">
             <div>
-              <p className="text-sm font-medium text-gray-900 dark:text-gray-100">Taxas de Associação</p>
+              <p className="text-sm font-medium text-gray-900 dark:text-gray-100">Joia</p>
               <p className="text-sm text-gray-500 dark:text-gray-400">Pago</p>
             </div>
             <Button variant="outline">
@@ -332,7 +334,7 @@ function DuesSection() {
           </div>
           <div className="flex items-center justify-between p-4">
             <div>
-              <p className="text-sm font-medium text-gray-900 dark:text-gray-100">Taxas de Evento</p>
+              <p className="text-sm font-medium text-gray-900 dark:text-gray-100">Quota <b>2025</b></p>
               <p className="text-sm text-gray-500 dark:text-gray-400">Pendente</p>
             </div>
             <Button variant="outline">

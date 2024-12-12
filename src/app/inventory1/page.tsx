@@ -6,8 +6,6 @@ import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbPage } from "@/components/ui/breadcrumb"
-import { Separator } from "@/components/ui/separator"
 import {
   SidebarInset,
   SidebarProvider,
@@ -19,21 +17,24 @@ export default function Component() {
   const [items, setItems] = useState([
     {
       id: 1,
-      name: "Widget A",
-      description: "A high-quality widget",
-      quantity: 50,
-      value: 10.99,
+      name: "Tigelas",
+      categoria:"Comida",
+      description: "Tigelas caldo verde",
+      quantity: 72,
+      value: 0,
     },
     {
       id: 2,
-      name: "Gadget B",
-      description: "A useful gadget",
-      quantity: 25,
-      value: 19.99,
+      name: "Cerveja Mini Super Bock",
+      categoria:"Bar",
+      description: "Pack 24 x 20 cl",
+      quantity: 4,
+      value: 9.99,
     },
     {
       id: 3,
       name: "Thingamajig C",
+      categoria:"Bar",
       description: "An essential thingamajig",
       quantity: 12,
       value: 5.99,
@@ -41,6 +42,7 @@ export default function Component() {
     {
       id: 4,
       name: "Doodad D",
+      categoria:"Bar",
       description: "A fun doodad",
       quantity: 100,
       value: 2.99,
@@ -48,6 +50,7 @@ export default function Component() {
   ])
   const [newItem, setNewItem] = useState({
     name: "",
+    categoria: "",
     description: "",
     quantity: 0,
     value: 0,
@@ -65,6 +68,7 @@ export default function Component() {
     setItems([...items, { ...newItem, id: items.length + 1 }])
     setNewItem({
       name: "",
+      categoria: "",
       description: "",
       quantity: 0,
       value: 0,
@@ -89,10 +93,10 @@ export default function Component() {
               <Card>
                 <CardHeader className="pb-4">
                   <CardTitle>Valor do Inventario</CardTitle>
-                  <CardDescription>Valor total de todo o stock</CardDescription>
+                  <CardDescription>Valor total de stock</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-4xl font-bold">${totalValue.toFixed(2)}</div>
+                  <div className="text-4xl font-bold">{totalValue.toFixed(2)}€</div>
                 </CardContent>
               </Card>
               <Card>
@@ -107,7 +111,7 @@ export default function Component() {
               <Card>
                 <CardHeader className="pb-4">
                   <CardTitle>Pouco Stock</CardTitle>
-                  <CardDescription>Numero de items com menos stock</CardDescription>
+                  <CardDescription>Numero de items com menos de 10 elementos</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="text-4xl font-bold">{lowStock}</div>
@@ -116,26 +120,30 @@ export default function Component() {
             </div>
             <Card>
               <CardHeader className="pb-4">
-                <CardTitle>Inventory</CardTitle>
-                <CardDescription>View and manage all items in your inventory</CardDescription>
+                <CardTitle>Inventário</CardTitle>
+                <CardDescription>Ver e gerir todos os items do invetário</CardDescription>
               </CardHeader>
               <CardContent>
                 <Table>
                   <TableHeader>
                     <TableRow>
                       <TableHead>Item</TableHead>
-                      <TableHead>Description</TableHead>
-                      <TableHead>Quantity</TableHead>
-                      <TableHead>Value</TableHead>
+                      <TableHead>Categoria</TableHead>
+                      <TableHead>Descrição</TableHead>
+                      <TableHead>Quantidade</TableHead>
+                      <TableHead>Preço/Un</TableHead>
+                      <TableHead>Preço total</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
                     {items.map((item) => (
                       <TableRow key={item.id}>
                         <TableCell className="font-medium">{item.name}</TableCell>
+                        <TableCell>{item.categoria}</TableCell>
                         <TableCell>{item.description}</TableCell>
                         <TableCell>{item.quantity}</TableCell>
-                        <TableCell>${item.value.toFixed(2)}</TableCell>
+                        <TableCell>{item.value.toFixed(2)}€</TableCell>
+                        <TableCell>{((item.value) * item.quantity).toFixed(2)}€</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
@@ -144,8 +152,8 @@ export default function Component() {
             </Card>
             <Card>
               <CardHeader className="pb-4">
-                <CardTitle>Add New Item</CardTitle>
-                <CardDescription>Fill out the form to add a new item to your inventory</CardDescription>
+                <CardTitle>Adicionar novo item </CardTitle>
+                <CardDescription>Preencha o formulario para adicionar um novo item ao inventário</CardDescription>
               </CardHeader>
               <CardContent>
                 <form className="grid gap-4">
@@ -159,7 +167,7 @@ export default function Component() {
                       />
                     </div>
                     <div className="grid gap-2">
-                      <Label htmlFor="description">Description</Label>
+                      <Label htmlFor="description">Descrição</Label>
                       <Input
                         id="description"
                         value={newItem.description}
@@ -169,7 +177,7 @@ export default function Component() {
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="grid gap-2">
-                      <Label htmlFor="quantity">Quantity</Label>
+                      <Label htmlFor="quantity">Quantidade</Label>
                       <Input
                         id="quantity"
                         type="number"
@@ -178,7 +186,7 @@ export default function Component() {
                       />
                     </div>
                     <div className="grid gap-2">
-                      <Label htmlFor="value">Value</Label>
+                      <Label htmlFor="value">Preço total</Label>
                       <Input
                         id="value"
                         type="number"
@@ -187,7 +195,7 @@ export default function Component() {
                       />
                     </div>
                   </div>
-                  <Button onClick={handleAddItem}>Add Item</Button>
+                  <Button onClick={handleAddItem}>Adicionar item</Button>
                 </form>
               </CardContent>
             </Card>
@@ -200,88 +208,4 @@ export default function Component() {
   )
 }
 
-function BoxIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" />
-      <path d="m3.3 7 8.7 5 8.7-5" />
-      <path d="M12 22V12" />
-    </svg>
-  )
-}
 
-
-function HomeIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-      <polyline points="9 22 9 12 15 12 15 22" />
-    </svg>
-  )
-}
-
-
-function PackageIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="m7.5 4.27 9 5.15" />
-      <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" />
-      <path d="m3.3 7 8.7 5 8.7-5" />
-      <path d="M12 22V12" />
-    </svg>
-  )
-}
-
-
-function SettingsIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
-      <circle cx="12" cy="12" r="3" />
-    </svg>
-  )
-}
