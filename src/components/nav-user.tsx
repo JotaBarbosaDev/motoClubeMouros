@@ -7,6 +7,7 @@ import {
   CreditCard,
   LogOut,
   Sparkles,
+  Settings
 } from "lucide-react"
 
 import {
@@ -96,9 +97,9 @@ export function NavUser({
                 <CreditCard />
                 Regularizar Quotas
               </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Bell />
-                Notificações
+              <DropdownMenuItem onClick={() => window.location.href = '/settings'}>
+                <Settings />
+                Definições
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />

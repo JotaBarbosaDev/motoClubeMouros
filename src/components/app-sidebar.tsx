@@ -11,7 +11,8 @@ import {
   BeerIcon,
   StoreIcon,
   MapPinHouse,
-  FileSpreadsheet
+  FileSpreadsheet,
+  ReceiptEuro 
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
@@ -44,6 +45,12 @@ const data = {
       title: "Estatísticas",
       url: "/dashboard",
       icon: PieChart,
+      isActive: false,
+    },
+    {
+      title: "Tesouraria",
+      url: "/dashboard",
+      icon: ReceiptEuro,
       isActive: false,
     },
     {

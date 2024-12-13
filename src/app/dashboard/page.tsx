@@ -1,3 +1,5 @@
+"use client"
+
 import { AppSidebar } from "@/components/app-sidebar"
 import {
   SidebarInset,
@@ -7,22 +9,9 @@ import { SidebarTrigger } from "@/components/ui/sidebar"
 import { Separator } from "@/components/ui/separator"
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import { QuotaChart } from "@/app/dashboard/quotaChart"
-
-const data = [
-  { name: 'Jan', visits: 30, reciprocated: 20 },
-  { name: 'Feb', visits: 20, reciprocated: 25 },
-  { name: 'Mar', visits: 27, reciprocated: 22 },
-  { name: 'Apr', visits: 23, reciprocated: 30 },
-  { name: 'May', visits: 34, reciprocated: 28 },
-  { name: 'Jun', visits: 40, reciprocated: 35 },
-  { name: 'Jul', visits: 45, reciprocated: 40 },
-  { name: 'Aug', visits: 50, reciprocated: 45 },
-  { name: 'Sep', visits: 55, reciprocated: 50 },
-  { name: 'Oct', visits: 60, reciprocated: 55 },
-  { name: 'Nov', visits: 65, reciprocated: 60 },
-  { name: 'Dec', visits: 70, reciprocated: 65 },
-];
+import { DollarSignIcon, UsersIcon, CreditCardIcon, ActivityIcon } from "lucide-react"
+import { ResponsiveLine } from "@nivo/line"
+import { ResponsiveBar } from "@nivo/bar"
 
 export default function Page() {
   return (
@@ -49,145 +38,196 @@ export default function Page() {
               </Breadcrumb>
             </header>
 
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Número de Membros</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-4xl font-bold">140</p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Número de Vendas</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-4xl font-bold">250</p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Lucro</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-4xl font-bold">€12,500</p>
-                </CardContent>
-              </Card>
-            </div>
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between pb-2">
+              <CardTitle className="text-sm font-bold">Total Revenue</CardTitle>
+              <DollarSignIcon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">$45,231.89</div>
+              <p className="text-xs text-gray-500 dark:text-gray-400">+20.1% from last month</p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between pb-2">
+              <CardTitle className="text-sm font-bold">Customers</CardTitle>
+              <UsersIcon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">+2350</div>
+              <p className="text-xs text-gray-500 dark:text-gray-400">+180.1% from last month</p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between pb-2">
+              <CardTitle className="text-sm font-bold">Services Sold</CardTitle>
+              <CreditCardIcon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">+12,234</div>
+              <p className="text-xs text-gray-500 dark:text-gray-400">+19% from last month</p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between pb-2">
+              <CardTitle className="text-sm font-bold">Active Now</CardTitle>
+              <ActivityIcon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">+573</div>
+              <p className="text-xs text-gray-500 dark:text-gray-400">+201 since last hour</p>
+            </CardContent>
+          </Card>
+        </div>
 
-            <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-              <QuotaChart />
-            <Card>
-              <CardHeader>
-              <CardTitle>Visitas de mes passado</CardTitle>
-              </CardHeader>
-              <CardContent>  
-              <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
-                {data.map((item, index) => (
-                <Card key={index} className="max-w-xs">
-                  <CardHeader>
-                  <CardTitle className="flex items-center justify-between">
-                    <img src="https://github.com/shadcn.png" alt="Logo X" className="h-8 w-8" />
-                    <span className="mx-1">→</span>
-                    <img src="https://github.com/shadcn.png" alt="Logo Y" className="h-8 w-8" />
-                  </CardTitle>
-                  </CardHeader>
-                    <CardContent className="flex justify-center">
-                    <p className="text-m font-bold">{item.visits} Visitas</p>
-                    </CardContent>
-                </Card>
-                ))}
-              </div>
-              </CardContent>
-            </Card>
-            </div>
-            
-
-            <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Eventos Realizados</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-4xl font-bold">15</p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Produtos Vendidos</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-4xl font-bold">500</p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Novos Membros</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-4xl font-bold">30</p>
-                </CardContent>
-              </Card>
-            </div>
-
-            <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Feedbacks Recebidos</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-4xl font-bold">120</p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Saldo Atual</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-4xl font-bold">€25,000</p>
-                </CardContent>
-              </Card>
-            </div>
-
-            <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Despesas Recentes</CardTitle>
-                </CardHeader>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Atividades Recentes</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="list-disc pl-5">
-                    <li>Reunião mensal - 10/10/2023</li>
-                    <li>Evento de caridade - 15/10/2023</li>
-                    <li>Passeio de Natal - 25/12/2023</li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
-
-            <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Estoque Atual</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="list-disc pl-5">
-                    <li>Cervejas: 68</li>
-                    <li>Coca Cola Lata: 90</li>
-                    <li>Colheres: 48</li>
-                    <li>Martini Mini: 32</li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-2 py-4">
+        <Card>
+            <CardHeader>
+              <CardTitle>Revenue by Service</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <BarChart className="aspect-[9/4]" />
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>Customer Growth</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <LineChart className="aspect-[9/4]" />
+            </CardContent>
+          </Card>
+          </div>
           </div>
         </SidebarInset>
       </SidebarProvider>
+    </div>
+  )
+}
+
+function LineChart(props: any) {
+  return (
+    <div {...props}>
+      <ResponsiveLine
+        data={[
+          {
+            id: "Desktop",
+            data: [
+              { x: "Jan", y: 43 },
+              { x: "Feb", y: 137 },
+              { x: "Mar", y: 61 },
+              { x: "Apr", y: 145 },
+              { x: "May", y: 26 },
+              { x: "Jun", y: 154 },
+            ],
+          },
+          {
+            id: "Mobile",
+            data: [
+              { x: "Jan", y: 60 },
+              { x: "Feb", y: 48 },
+              { x: "Mar", y: 177 },
+              { x: "Apr", y: 78 },
+              { x: "May", y: 96 },
+              { x: "Jun", y: 204 },
+            ],
+          },
+        ]}
+        margin={{ top: 10, right: 10, bottom: 40, left: 40 }}
+        xScale={{
+          type: "point",
+        }}
+        yScale={{
+          type: "linear",
+        }}
+        axisTop={null}
+        axisRight={null}
+        axisBottom={{
+          tickSize: 0,
+          tickPadding: 16,
+        }}
+        axisLeft={{
+          tickSize: 0,
+          tickValues: 5,
+          tickPadding: 16,
+        }}
+        colors={["#2563eb", "#e11d48"]}
+        pointSize={6}
+        useMesh={true}
+        gridYValues={6}
+        theme={{
+          tooltip: {
+            chip: {
+              borderRadius: "9999px",
+            },
+            container: {
+              fontSize: "12px",
+              textTransform: "capitalize",
+              borderRadius: "6px",
+            },
+          },
+          grid: {
+            line: {
+              stroke: "#f3f4f6",
+            },
+          },
+        }}
+        role="application"
+      />
+    </div>
+  )
+}
+
+function BarChart(props: any) {
+  return (
+    <div {...props}>
+      <ResponsiveBar
+        data={[
+          { name: "Jan", count: 111 },
+          { name: "Feb", count: 157 },
+          { name: "Mar", count: 129 },
+          { name: "Apr", count: 150 },
+          { name: "May", count: 119 },
+          { name: "Jun", count: 72 },
+        ]}
+        keys={["count"]}
+        indexBy="name"
+        margin={{ top: 0, right: 0, bottom: 40, left: 40 }}
+        padding={0.3}
+        colors={["#2563eb"]}
+        axisBottom={{
+          tickSize: 0,
+          tickPadding: 16,
+        }}
+        axisLeft={{
+          tickSize: 0,
+          tickValues: 4,
+          tickPadding: 16,
+        }}
+        gridYValues={4}
+        theme={{
+          tooltip: {
+            chip: {
+              borderRadius: "9999px",
+            },
+            container: {
+              fontSize: "12px",
+              textTransform: "capitalize",
+              borderRadius: "6px",
+            },
+          },
+          grid: {
+            line: {
+              stroke: "#f3f4f6",
+            },
+          },
+        }}
+        tooltipLabel={({ id }: { id: any }) => `${id}`}
+        enableLabel={false}
+        role="application"
+        ariaLabel="A bar chart showing data"
+      />
     </div>
   )
 }
