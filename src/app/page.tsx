@@ -55,7 +55,7 @@ export default function LoginForm() {
           </div>
           <div className="mt-4 text-center text-sm">
             Não têm uma conta?{" "}
-            <Link href="#" className="underline">
+            <Link href="/register" className="underline">
               Registar
             </Link>
           </div>
