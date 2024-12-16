@@ -39,7 +39,7 @@ export default function LoginForm() {
         <CardHeader>
           <CardTitle className="text-2xl">Login</CardTitle>
           <CardDescription>
-            Introduza o seu email e password para aceder à sua conta.
+            Introduza o seu email e password para aceder à sua conta1.
           </CardDescription>
         </CardHeader>
         <CardContent>
