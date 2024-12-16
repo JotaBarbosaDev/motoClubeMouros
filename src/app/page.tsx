@@ -11,6 +11,22 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+function HandleSubmit(formData: { email: string; password: string }) {
+  fetch("/api/login-user", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formData),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data)
+    })
+    .catch((error) => {
+      console.error("Erro:", error)
+    })
+}
 
 export default function LoginForm() {
   return (
@@ -48,7 +64,13 @@ export default function LoginForm() {
             <Button 
               type="submit" 
               className="w-full"
-              onClick={() => window.location.href = '/dashboard'}
+              onClick={() => {
+                const formData = {
+                  email: (document.getElementById("email") as HTMLInputElement).value,
+                  password: (document.getElementById("password") as HTMLInputElement).value,
+                };
+                HandleSubmit(formData);
+              }}
             >
               Entrar
             </Button>
