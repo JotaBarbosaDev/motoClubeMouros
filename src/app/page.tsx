@@ -19,13 +19,17 @@ function HandleSubmit(formData: { email: string; password: string }) {
     },
     body: JSON.stringify(formData),
   })
-    .then((res) => res.json())
+    .then((res) => {
+      res.json()
+      console.log(res);
+    })
     .then((data) => {
       console.log(data)
     })
     .catch((error) => {
       console.error("Erro:", error)
     })
+
 }
 
 export default function LoginForm() {
@@ -35,13 +39,13 @@ export default function LoginForm() {
         <CardHeader>
           <CardTitle className="text-2xl">Login</CardTitle>
           <CardDescription>
-            Introduza o seu nome de utilizador e password para aceder à sua conta.
+            Introduza o seu email e password para aceder à sua conta.
           </CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid gap-4">
             <div className="grid gap-2">
-              <Label htmlFor="email">Nome de Utilizador</Label>
+              <Label htmlFor="email">Email</Label>
               <Input
                 id="email"
                 type="text"
