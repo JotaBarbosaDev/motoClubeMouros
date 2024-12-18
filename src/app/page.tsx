@@ -18,7 +18,7 @@ dotenv.config();
 export const DOMAIN = process.env.NEXT_PUBLIC_DOMAIN || '';
 
 function HandleSubmit(formData: { email: string; password: string }) {
-  fetch(DOMAIN+"/api/login-user", {
+  fetch(DOMAIN + "/api/login-user", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -41,7 +41,7 @@ export default function LoginForm() {
         <CardHeader>
           <CardTitle className="text-2xl">Login</CardTitle>
           <CardDescription>
-            Introduza o seu email e password para aceder à sua conta1.
+            Introduza o seu email e password para aceder à sua conta.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -62,13 +62,13 @@ export default function LoginForm() {
                   Esqueceu a senha?
                 </Link>
               </div>
-              <Input 
-              id="password" 
-              type="password" 
-              required /> 
+              <Input
+                id="password"
+                type="password"
+                required />
             </div>
-            <Button 
-              type="submit" 
+            <Button
+              type="submit"
               className="w-full"
               onClick={() => {
                 const formData = {
