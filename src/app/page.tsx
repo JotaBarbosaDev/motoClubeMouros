@@ -27,6 +27,7 @@ function HandleSubmit(formData: { email: string; password: string }) {
   })
     .then((data) => {
       if (data.status === 200) {
+        //redirect to /dashboard
         window.location.href = '/dashboard';
       }
       console.log(data)
