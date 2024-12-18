@@ -26,6 +26,10 @@ function HandleSubmit(formData: { email: string; password: string }) {
     body: JSON.stringify(formData),
   })
     .then((data) => {
+      if (data.status === 200) {
+        //redirect to /dashboard
+        window.location.href = '/dashboard';
+      }
       console.log(data)
     })
     .catch((error) => {
