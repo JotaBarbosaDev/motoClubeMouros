@@ -11,18 +11,20 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+export const DOMAIN = process.env.NEXT_PUBLIC_DOMAIN || '';
+
 function HandleSubmit(formData: { email: string; password: string }) {
-  fetch("/api/login-user", {
+  fetch(DOMAIN+"/api/login-user", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(formData),
   })
-    .then((res) => {
-      res.json()
-      console.log(res);
-    })
     .then((data) => {
       console.log(data)
     })
