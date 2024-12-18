@@ -30,6 +30,10 @@ import { Separator } from '@/components/ui/separator';
 const DummyImage = dynamic(() => import('react-simple-placeholder-image').then(mod => mod.DummyImage), { ssr: false });
 
 
+function redirectStripeHandler() {
+  window.location.href = '/create-portal-session';
+}
+
 // Componente Principal
 export default function Component() {
   const [activeSection, setActiveSection] = useState('profile');
@@ -86,10 +90,9 @@ export default function Component() {
                       <button
                         onClick={() => setActiveSection(id)}
                         className={`flex items-center w-full px-4 py-2 rounded-md text-sm font-medium transition 
-                          ${
-                            activeSection === id
-                              ? "bg-black text-white"
-                              : "text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700"
+                          ${activeSection === id
+                            ? "bg-black text-white"
+                            : "text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700"
                           }`}
                         aria-current={activeSection === id ? "page" : undefined}
                       >
@@ -171,382 +174,382 @@ function PasswordSection() {
         <CardDescription className="text-gray-500 dark:text-gray-400">Atualize as permissões dos memebros.</CardDescription>
       </CardHeader>
       <CardContent>
-      <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
-        <Card>
-          <CardHeader>
-            <CardTitle>Admin</CardTitle>
-            <CardDescription>Acesso total a todos os recursos</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminUser" defaultChecked />
-              <Label htmlFor="adminUser">Consultar estatisticas</Label>
-            </div>
-            <Separator />
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Consultar membros</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Adicionar membros</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Editar membros</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Remover membros</Label>
-            </div>
-            <Separator />
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminOrders" defaultChecked />
-              <Label htmlFor="adminOrders">Consultar inventario</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Adicionar items</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Editar items</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Remover items</Label>
-            </div>
-            <Separator />
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminOrders" defaultChecked />
-              <Label htmlFor="adminOrders">Consultar a  garagem</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Adicionar mota</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Editar mota</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Remover mota</Label>
-            </div>
-            <Separator />
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Consultar visitas</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Adicionar visitas</Label>
-            </div>
-            <Separator />
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Adicionar produto</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Editar produtos</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Remover produtos</Label>
-            </div>
-            <Separator />
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Consultar logs</Label>
-            </div>
-          </CardContent>
-          <CardFooter>
-            <Button className="w-full">Update Role</Button>
-          </CardFooter>
-        </Card>
-        <Card>
-          <CardHeader>
-            <CardTitle>Direção</CardTitle>
-            <CardDescription>Consegue ver tudo, mas nao pode editar</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-2">
-          <div className="flex items-start gap-2">
-              <Checkbox id="adminUser" />
-              <Label htmlFor="adminUser">Consultar estatisticas</Label>
-            </div>
-            <Separator />
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Consultar membros</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Adicionar membros</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Editar membros</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts"  />
-              <Label htmlFor="adminProducts">Remover membros</Label>
-            </div>
-            <Separator />
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminOrders" defaultChecked />
-              <Label htmlFor="adminOrders">Consultar inventario</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Adicionar items</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Editar items</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" />
-              <Label htmlFor="adminProducts">Remover items</Label>
-            </div>
-            <Separator />
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminOrders" defaultChecked />
-              <Label htmlFor="adminOrders">Consultar a  garagem</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Adicionar mota</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Editar mota</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts"  />
-              <Label htmlFor="adminProducts">Remover mota</Label>
-            </div>
-            <Separator />
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Consultar visitas</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts"  />
-              <Label htmlFor="adminProducts">Adicionar visitas</Label>
-            </div>
-            <Separator />
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Adicionar produto</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts"  />
-              <Label htmlFor="adminProducts">Editar produtos</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts"  />
-              <Label htmlFor="adminProducts">Remover produtos</Label>
-            </div>
-            <Separator />
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts"  />
-              <Label htmlFor="adminProducts">Consultar logs</Label>
-            </div>
-          </CardContent>
-          <CardFooter>
-            <Button className="w-full">Update Role</Button>
-          </CardFooter>
-        </Card>
-        <Card>
-          <CardHeader>
-            <CardTitle>Tesoureiro</CardTitle>
-            <CardDescription>Permissão de Direção  e ainda pode gerir a tesouraria e inventarios</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-2">
-          <div className="flex items-start gap-2">
-              <Checkbox id="adminUser" defaultChecked />
-              <Label htmlFor="adminUser">Consultar estatisticas</Label>
-            </div>
-            <Separator />
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Consultar membros</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Adicionar membros</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Editar membros</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Remover membros</Label>
-            </div>
-            <Separator />
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminOrders" defaultChecked />
-              <Label htmlFor="adminOrders">Consultar inventario</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Adicionar items</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Editar items</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Remover items</Label>
-            </div>
-            <Separator />
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminOrders" defaultChecked />
-              <Label htmlFor="adminOrders">Consultar a  garagem</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Adicionar mota</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Editar mota</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Remover mota</Label>
-            </div>
-            <Separator />
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Consultar visitas</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Adicionar visitas</Label>
-            </div>
-            <Separator />
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Adicionar produto</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Editar produtos</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Remover produtos</Label>
-            </div>
-            <Separator />
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Consultar logs</Label>
-            </div>
-          </CardContent>
-          <CardFooter>
-            <Button className="w-full">Update Role</Button>
-          </CardFooter>
-        </Card>
-      </main>
-      <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
-        <Card>
-          <CardHeader>
-            <CardTitle>Sócio</CardTitle>
-            <CardDescription>Specify permissions for the new role</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-2">
-          <div className="flex items-start gap-2">
-              <Checkbox id="adminUser" defaultChecked />
-              <Label htmlFor="adminUser">Consultar estatisticas</Label>
-            </div>
-            <Separator />
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Consultar membros</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Adicionar membros</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Editar membros</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Remover membros</Label>
-            </div>
-            <Separator />
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminOrders" defaultChecked />
-              <Label htmlFor="adminOrders">Consultar inventario</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Adicionar items</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Editar items</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Remover items</Label>
-            </div>
-            <Separator />
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminOrders" defaultChecked />
-              <Label htmlFor="adminOrders">Consultar a  garagem</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Adicionar mota</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Editar mota</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Remover mota</Label>
-            </div>
-            <Separator />
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Consultar visitas</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Adicionar visitas</Label>
-            </div>
-            <Separator />
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Adicionar produto</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Editar produtos</Label>
-            </div>
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Remover produtos</Label>
-            </div>
-            <Separator />
-            <div className="flex items-start gap-2">
-              <Checkbox id="adminProducts" defaultChecked />
-              <Label htmlFor="adminProducts">Consultar logs</Label>
-            </div>
-          </CardContent>
-          <CardFooter>
-            <Button className="w-full">Create Role</Button>
-          </CardFooter>
-        </Card>
-      </main>
+        <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
+          <Card>
+            <CardHeader>
+              <CardTitle>Admin</CardTitle>
+              <CardDescription>Acesso total a todos os recursos</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-2">
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminUser" defaultChecked />
+                <Label htmlFor="adminUser">Consultar estatisticas</Label>
+              </div>
+              <Separator />
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Consultar membros</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Adicionar membros</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Editar membros</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Remover membros</Label>
+              </div>
+              <Separator />
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminOrders" defaultChecked />
+                <Label htmlFor="adminOrders">Consultar inventario</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Adicionar items</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Editar items</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Remover items</Label>
+              </div>
+              <Separator />
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminOrders" defaultChecked />
+                <Label htmlFor="adminOrders">Consultar a  garagem</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Adicionar mota</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Editar mota</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Remover mota</Label>
+              </div>
+              <Separator />
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Consultar visitas</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Adicionar visitas</Label>
+              </div>
+              <Separator />
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Adicionar produto</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Editar produtos</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Remover produtos</Label>
+              </div>
+              <Separator />
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Consultar logs</Label>
+              </div>
+            </CardContent>
+            <CardFooter>
+              <Button className="w-full">Update Role</Button>
+            </CardFooter>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>Direção</CardTitle>
+              <CardDescription>Consegue ver tudo, mas nao pode editar</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-2">
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminUser" />
+                <Label htmlFor="adminUser">Consultar estatisticas</Label>
+              </div>
+              <Separator />
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Consultar membros</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Adicionar membros</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Editar membros</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" />
+                <Label htmlFor="adminProducts">Remover membros</Label>
+              </div>
+              <Separator />
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminOrders" defaultChecked />
+                <Label htmlFor="adminOrders">Consultar inventario</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Adicionar items</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Editar items</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" />
+                <Label htmlFor="adminProducts">Remover items</Label>
+              </div>
+              <Separator />
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminOrders" defaultChecked />
+                <Label htmlFor="adminOrders">Consultar a  garagem</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Adicionar mota</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Editar mota</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" />
+                <Label htmlFor="adminProducts">Remover mota</Label>
+              </div>
+              <Separator />
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Consultar visitas</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" />
+                <Label htmlFor="adminProducts">Adicionar visitas</Label>
+              </div>
+              <Separator />
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Adicionar produto</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" />
+                <Label htmlFor="adminProducts">Editar produtos</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" />
+                <Label htmlFor="adminProducts">Remover produtos</Label>
+              </div>
+              <Separator />
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" />
+                <Label htmlFor="adminProducts">Consultar logs</Label>
+              </div>
+            </CardContent>
+            <CardFooter>
+              <Button className="w-full">Update Role</Button>
+            </CardFooter>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>Tesoureiro</CardTitle>
+              <CardDescription>Permissão de Direção  e ainda pode gerir a tesouraria e inventarios</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-2">
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminUser" defaultChecked />
+                <Label htmlFor="adminUser">Consultar estatisticas</Label>
+              </div>
+              <Separator />
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Consultar membros</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Adicionar membros</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Editar membros</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Remover membros</Label>
+              </div>
+              <Separator />
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminOrders" defaultChecked />
+                <Label htmlFor="adminOrders">Consultar inventario</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Adicionar items</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Editar items</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Remover items</Label>
+              </div>
+              <Separator />
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminOrders" defaultChecked />
+                <Label htmlFor="adminOrders">Consultar a  garagem</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Adicionar mota</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Editar mota</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Remover mota</Label>
+              </div>
+              <Separator />
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Consultar visitas</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Adicionar visitas</Label>
+              </div>
+              <Separator />
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Adicionar produto</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Editar produtos</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Remover produtos</Label>
+              </div>
+              <Separator />
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Consultar logs</Label>
+              </div>
+            </CardContent>
+            <CardFooter>
+              <Button className="w-full">Update Role</Button>
+            </CardFooter>
+          </Card>
+        </main>
+        <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
+          <Card>
+            <CardHeader>
+              <CardTitle>Sócio</CardTitle>
+              <CardDescription>Specify permissions for the new role</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-2">
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminUser" defaultChecked />
+                <Label htmlFor="adminUser">Consultar estatisticas</Label>
+              </div>
+              <Separator />
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Consultar membros</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Adicionar membros</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Editar membros</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Remover membros</Label>
+              </div>
+              <Separator />
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminOrders" defaultChecked />
+                <Label htmlFor="adminOrders">Consultar inventario</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Adicionar items</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Editar items</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Remover items</Label>
+              </div>
+              <Separator />
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminOrders" defaultChecked />
+                <Label htmlFor="adminOrders">Consultar a  garagem</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Adicionar mota</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Editar mota</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Remover mota</Label>
+              </div>
+              <Separator />
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Consultar visitas</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Adicionar visitas</Label>
+              </div>
+              <Separator />
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Adicionar produto</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Editar produtos</Label>
+              </div>
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Remover produtos</Label>
+              </div>
+              <Separator />
+              <div className="flex items-start gap-2">
+                <Checkbox id="adminProducts" defaultChecked />
+                <Label htmlFor="adminProducts">Consultar logs</Label>
+              </div>
+            </CardContent>
+            <CardFooter>
+              <Button className="w-full">Create Role</Button>
+            </CardFooter>
+          </Card>
+        </main>
       </CardContent>
       <CardFooter className="flex justify-end border-gray-200 dark:border-gray-700">
         <Button className="bg-black hover:bg-black">Guardar alterações</Button>
@@ -610,7 +613,7 @@ function SubscriptionSection() {
               <p className="text-sm font-medium text-gray-900 dark:text-gray-100">Plano Atual</p>
               <p className="text-sm text-gray-500 dark:text-gray-400">Subscrição - Renovação em 1 ano</p>
             </div>
-            <Button variant="outline">
+            <Button onClick={redirectStripeHandler} variant="outline">
               Atualizar Plano
             </Button>
           </div>
