@@ -31,7 +31,7 @@ const DummyImage = dynamic(() => import('react-simple-placeholder-image').then(m
 
 
 function redirectStripeHandler() {
-  window.location.href = '/create-portal-session';
+  window.location.href = '/api/create-portal-session';
 }
 
 // Componente Principal
