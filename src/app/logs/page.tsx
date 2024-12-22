@@ -1,27 +1,53 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Input } from "@/components/ui/input"
-import { Select } from "@/components/ui/select"
-import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table"
-import { Button } from "@/components/ui/button"
-import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbPage } from "@/components/ui/breadcrumb"
-import { Separator } from "@/components/ui/separator"
+import {useState} from "react";
+import {Input} from "@/components/ui/input";
+import {
+  Table,
+  TableHeader,
+  TableRow,
+  TableHead,
+  TableBody,
+  TableCell,
+} from "@/components/ui/table";
+import {Button} from "@/components/ui/button";
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
-} from "@/components/ui/sidebar"
-import { AppSidebar } from '@/components/app-sidebar';
+} from "@/components/ui/sidebar";
+import {AppSidebar} from "@/components/app-sidebar";
 
-
+// Ícone de pesquisa
+function SearchIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <circle cx="11" cy="11" r="8" />
+      <path d="m21 21-4.3-4.3" />
+    </svg>
+  );
+}
 
 export default function Component() {
-  const [searchTerm, setSearchTerm] = useState("")
-  const [sortColumn, setSortColumn] = useState("timestamp")
-  const [sortDirection, setSortDirection] = useState("desc")
-  const [currentPage, setCurrentPage] = useState(1)
-  const [itemsPerPage, setItemsPerPage] = useState(10)
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sortColumn, setSortColumn] = useState("timestamp");
+  const [sortDirection, setSortDirection] = useState("desc");
+  const [currentPage, setCurrentPage] = useState(1);
+
+  // Controla quantas linhas por página (itemsPerPage) serão exibidas.
+  const [itemsPerPage, setItemsPerPage] = useState(10);
+
   const activityLogs = [
     {
       id: 1,
@@ -275,148 +301,200 @@ export default function Component() {
       timestamp: "2023-04-24 11:35:00",
       details: 'Ticket ID: "#1234"',
     },
-  ]
+  ];
+
+  // Filtro simples baseado em pesquisa
   const filteredLogs = activityLogs.filter(
     (log) =>
       log.user.toLowerCase().includes(searchTerm.toLowerCase()) ||
       log.action.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      log.details.toLowerCase().includes(searchTerm.toLowerCase()),
-  )
+      log.details.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  // Ordenação
   const sortedLogs = filteredLogs.sort((a, b) => {
-    if (a[sortColumn as keyof typeof a] < b[sortColumn as keyof typeof b]) return sortDirection === "asc" ? -1 : 1
-    if (a[sortColumn as keyof typeof a] > b[sortColumn as keyof typeof b]) return sortDirection === "asc" ? 1 : -1
-    return 0
-  })
-  const indexOfLastItem = currentPage * itemsPerPage
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage
-  const currentItems = sortedLogs.slice(indexOfFirstItem, indexOfLastItem)
-  const totalPages = Math.ceil(sortedLogs.length / itemsPerPage)
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value)
-    setCurrentPage(1)
-  }
-  const handleSort = (column: keyof typeof activityLogs[0]) => {
-    if (sortColumn === column) {
-      setSortDirection(sortDirection === "asc" ? "desc" : "asc")
-    } else {
-      setSortColumn(column)
-      setSortDirection("asc")
+    if (a[sortColumn as keyof typeof a] < b[sortColumn as keyof typeof b]) {
+      return sortDirection === "asc" ? -1 : 1;
     }
-  }
+    if (a[sortColumn as keyof typeof a] > b[sortColumn as keyof typeof b]) {
+      return sortDirection === "asc" ? 1 : -1;
+    }
+    return 0;
+  });
+
+  // Paginação
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = sortedLogs.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(sortedLogs.length / itemsPerPage);
+
+  // Handlers
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+    setCurrentPage(1);
+  };
+
+  const handleSort = (column: keyof (typeof activityLogs)[0]) => {
+    if (sortColumn === column) {
+      setSortDirection(sortDirection === "asc" ? "desc" : "asc");
+    } else {
+      setSortColumn(column);
+      setSortDirection("asc");
+    }
+  };
+
   const handlePageChange = (page: number) => {
-    setCurrentPage(page)
-  }
+    setCurrentPage(page);
+  };
+
   return (
     <SidebarProvider>
       <AppSidebar />
-    <SidebarInset>
-      <div>
-    <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
-    <div className="flex items-center gap-2 px-4">
-      <SidebarTrigger className="-ml-1" />      
-    </div>
-  </header>
-  </div>
-    <div className="p-6 md:p-8 lg:p-10">
-      <div className="mb-6 flex items-center justify-between">
-        <h1 className="text-2xl font-bold">Log de atividades</h1>
-        <div className="flex items-center gap-4">
-          <div className="relative">
-            <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <Input
-              type="text"
-              placeholder="Pesquisar..."
-              value={searchTerm}
-              onChange={handleSearch}
-              className="pl-10 pr-4 py-2 rounded-md border border-input bg-background focus:border-primary focus:outline-none"
-            />
-          </div>
-          <select
-            value={itemsPerPage.toString()}
-            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setItemsPerPage(Number(e.target.value))}
-            className="w-32"
-          >
-            <option value="10">10</option>
-            <option value="20">20</option>
-            <option value="50">50</option>
-            <option value="100">100</option>
-          </select>
+      <SidebarInset>
+        {/* Header da sidebar */}
+        <div>
+          <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
+            <div className="flex items-center gap-2 px-4">
+              <SidebarTrigger className="-ml-1" />
+            </div>
+          </header>
         </div>
-      </div>
-      <div className="overflow-x-auto">
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="cursor-pointer" onClick={() => handleSort("user")}>
-                Utilizadores{" "}
-                {sortColumn === "user" && <span className="ml-1">{sortDirection === "asc" ? "\u2191" : "\u2193"}</span>}
-              </TableHead>
-              <TableHead className="cursor-pointer" onClick={() => handleSort("action")}>
-                Ação{" "}
-                {sortColumn === "action" && (
-                  <span className="ml-1">{sortDirection === "asc" ? "\u2191" : "\u2193"}</span>
-                )}
-              </TableHead>
-              <TableHead className="cursor-pointer" onClick={() => handleSort("timestamp")}>
-                Timestamp{" "}
-                {sortColumn === "timestamp" && (
-                  <span className="ml-1">{sortDirection === "asc" ? "\u2191" : "\u2193"}</span>
-                )}
-              </TableHead>
-              <TableHead>Detalhes</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {currentItems.map((log) => (
-              <TableRow key={log.id}>
-                <TableCell>{log.user}</TableCell>
-                <TableCell>{log.action}</TableCell>
-                <TableCell>{log.timestamp}</TableCell>
-                <TableCell>{log.details}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </div>
-      <div className="mt-6 flex items-center justify-between">
-        <div className="text-sm text-muted-foreground">
-          A mostrar {indexOfFirstItem + 1} até {indexOfLastItem} de {sortedLogs.length} entradas
-        </div>
-        <div className="flex items-center gap-2">
-          {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-            <Button
-              key={page}
-              variant={page === currentPage ? "default" : "outline"}
-              onClick={() => handlePageChange(page)}
-              className="px-3 py-1 text-sm"
-            >
-              {page}
-            </Button>
-          ))}
-        </div>
-      </div>
-    </div>
-        </SidebarInset>
-      </SidebarProvider>
-    )
-}
 
-function SearchIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <circle cx="11" cy="11" r="8" />
-      <path d="m21 21-4.3-4.3" />
-    </svg>
-  )
+        {/* Conteúdo principal */}
+        <div className="p-6 md:p-8 lg:p-10">
+          <div className="mb-6 flex items-center justify-between">
+            <h1 className="text-2xl font-bold">Log de atividades</h1>
+            {/* Campo de pesquisa */}
+            <div className="relative">
+              <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <Input
+                type="text"
+                placeholder="Pesquisar..."
+                value={searchTerm}
+                onChange={handleSearch}
+                className="pl-10 pr-4 py-2 rounded-md border border-input bg-background focus:border-primary focus:outline-none"
+              />
+            </div>
+          </div>
+
+          {/* Tabela */}
+          <div className="overflow-x-auto">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead
+                    className="cursor-pointer"
+                    onClick={() => handleSort("user")}
+                  >
+                    Utilizadores{" "}
+                    {sortColumn === "user" && (
+                      <span className="ml-1">
+                        {sortDirection === "asc" ? "\u2191" : "\u2193"}
+                      </span>
+                    )}
+                  </TableHead>
+                  <TableHead
+                    className="cursor-pointer"
+                    onClick={() => handleSort("action")}
+                  >
+                    Ação{" "}
+                    {sortColumn === "action" && (
+                      <span className="ml-1">
+                        {sortDirection === "asc" ? "\u2191" : "\u2193"}
+                      </span>
+                    )}
+                  </TableHead>
+                  <TableHead
+                    className="cursor-pointer"
+                    onClick={() => handleSort("timestamp")}
+                  >
+                    Timestamp{" "}
+                    {sortColumn === "timestamp" && (
+                      <span className="ml-1">
+                        {sortDirection === "asc" ? "\u2191" : "\u2193"}
+                      </span>
+                    )}
+                  </TableHead>
+                  <TableHead>Detalhes</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {currentItems.map((log) => (
+                  <TableRow key={log.id}>
+                    <TableCell>{log.user}</TableCell>
+                    <TableCell>{log.action}</TableCell>
+                    <TableCell>{log.timestamp}</TableCell>
+                    <TableCell>{log.details}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
+
+          {/* Secção de paginação em baixo */}
+          <div className="flex items-center justify-end space-x-2 py-4">
+            {/* Info de quantas linhas aparecem */}
+            <div className="flex-1 text-sm text-muted-foreground">
+              A mostrar {indexOfFirstItem + 1} até{" "}
+              {Math.min(indexOfLastItem, sortedLogs.length)} de{" "}
+              {sortedLogs.length} entrada(s)
+            </div>
+
+            {/* Linhas por página */}
+            <div className="flex items-center space-x-2">
+              <span className="text-sm text-muted-foreground">
+                Linhas por página:
+              </span>
+              <select
+                value={itemsPerPage}
+                onChange={(e) => {
+                  setItemsPerPage(Number(e.target.value));
+                  setCurrentPage(1); // volta à primeira página
+                }}
+                className="border rounded-md py-1 px-2 text-sm"
+              >
+                {[5, 10, 20, 30, 50, 100].map((pageSize) => (
+                  <option key={pageSize} value={pageSize}>
+                    {pageSize}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Botões Anterior e Próximo */}
+            <div className="space-x-2">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => handlePageChange(currentPage - 1)}
+                disabled={currentPage === 1}
+              >
+                Anterior
+              </Button>
+
+              {/* Botões de páginas (1, 2, 3, ...) */}
+              {Array.from({length: totalPages}, (_, i) => i + 1).map((page) => (
+                <Button
+                  key={page}
+                  variant={page === currentPage ? "default" : "outline"}
+                  onClick={() => handlePageChange(page)}
+                  className="px-3 py-1 text-sm"
+                >
+                  {page}
+                </Button>
+              ))}
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => handlePageChange(currentPage + 1)}
+                disabled={currentPage === totalPages || totalPages === 0}
+              >
+                Próximo
+              </Button>
+            </div>
+          </div>
+        </div>
+      </SidebarInset>
+    </SidebarProvider>
+  );
 }
