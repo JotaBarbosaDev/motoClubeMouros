@@ -55,7 +55,6 @@ export default function LoginForm() {
               <Input
                 id="email"
                 type="text"
-                placeholder="ex: utilizador123"
                 required
               />
             </div>

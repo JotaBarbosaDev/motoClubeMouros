@@ -12,7 +12,8 @@ import {
   StoreIcon,
   MapPinHouse,
   FileSpreadsheet,
-  ReceiptEuro 
+  ReceiptEuro, 
+  Badge
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
@@ -26,6 +27,7 @@ import {
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar"
+import { describe } from "node:test"
 
 const data = {
   user: {
@@ -35,10 +37,10 @@ const data = {
   },
   teams: [
     {
-      name: "Moto Club Mouros",
+      name: 'Moto Clube "Os Mouros"',
       logo: Bike,
-      plan: "Aberto",
-    }
+      plan: "Abertos",
+    },
   ],
   navMain: [
     {
@@ -57,6 +59,9 @@ const data = {
       title: "Membros",
       url: "/members",
       icon: Users,
+      notification: "7",
+      notColor: "",
+      animate: "animate-pulse",
     },
     {
       title: "Inventário",
@@ -96,12 +101,13 @@ const data = {
       title: "Bar",
       url: "/caixa",
       icon: BeerIcon,
+      notification: "Fechado",
     },
     {
       title: "Logs",
       url: "/logs",
       icon: FileSpreadsheet,
-    }
+    },
   ],
   events: [
     {
@@ -120,7 +126,7 @@ const data = {
       icon: Bike,
     },
   ],
-}
+};
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
@@ -137,5 +143,5 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>
-  )
+  );
 }

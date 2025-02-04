@@ -1,6 +1,4 @@
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/card';
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
-import { Separator } from '@/components/ui/separator';
 import { AvatarImage, Avatar, AvatarFallback } from '@radix-ui/react-avatar';
 import { Skeleton } from '@/components/ui/skeleton';
 import {
@@ -46,6 +44,7 @@ export default function Garage(){
         <div className="flex flex-1 flex-col gap-4 p-4">
           <div className="grid auto-rows-min gap-4 md:grid-cols-2 xl:grid-cols-4 lg:grid-cols-3">
 
+            
 
             <div className="aspect-square sm:aspect-auto rounded-xl bg-muted/50 hover:shadow-lg">
               <Card>

@@ -6,8 +6,6 @@ import {
   SidebarProvider,
 } from "@/components/ui/sidebar"
 import { SidebarTrigger } from "@/components/ui/sidebar"
-import { Separator } from "@/components/ui/separator"
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { DollarSignIcon, UsersIcon, CreditCardIcon, ActivityIcon } from "lucide-react"
 import { ResponsiveLine } from "@nivo/line"
@@ -22,88 +20,75 @@ export default function Page() {
           <div className="p-6">
             <header className="flex items-center gap-4 mb-6">
               <SidebarTrigger className="-ml-1" />
-              <Separator orientation="vertical" className="h-6" />
-              <Breadcrumb>
-                <BreadcrumbList>
-                  <BreadcrumbItem className="hidden md:block">
-                    <BreadcrumbLink href="/estatisticas">
-                      Estatísticas
-                    </BreadcrumbLink>
-                  </BreadcrumbItem>
-                  <BreadcrumbSeparator className="hidden md:block" />
-                  <BreadcrumbItem>
-                    <BreadcrumbPage>Gerais</BreadcrumbPage>
-                  </BreadcrumbItem>
-                </BreadcrumbList>
-              </Breadcrumb>
             </header>
 
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-bold">Total Revenue</CardTitle>
-              <DollarSignIcon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">$45,231.89</div>
-              <p className="text-xs text-gray-500 dark:text-gray-400">+20.1% from last month</p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-bold">Customers</CardTitle>
-              <UsersIcon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">+2350</div>
-              <p className="text-xs text-gray-500 dark:text-gray-400">+180.1% from last month</p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-bold">Services Sold</CardTitle>
-              <CreditCardIcon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">+12,234</div>
-              <p className="text-xs text-gray-500 dark:text-gray-400">+19% from last month</p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-bold">Active Now</CardTitle>
-              <ActivityIcon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">+573</div>
-              <p className="text-xs text-gray-500 dark:text-gray-400">+201 since last hour</p>
-            </CardContent>
-          </Card>
-        </div>
+              <Card>
+                <CardHeader className="flex flex-row items-center justify-between pb-2">
+                  <CardTitle className="text-sm font-bold">
+                    Rendimentos Gerais
+                  </CardTitle>
+                  <DollarSignIcon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+                </CardHeader>
+                <CardContent>
+                  <div className="text-2xl font-bold">6,852.60€</div>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">
+                    +10.1% que no ano passado
+                  </p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader className="flex flex-row items-center justify-between pb-2">
+                  <CardTitle className="text-sm font-bold">Sócios</CardTitle>
+                  <UsersIcon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+                </CardHeader>
+                <CardContent>
+                  <div className="text-2xl font-bold">63</div>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">
+                    +180.1% que no ano passado
+                  </p>
+                </CardContent>
+              </Card>
 
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-2 py-4">
-        <Card>
-            <CardHeader>
-              <CardTitle>Revenue by Service</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <BarChart className="aspect-[9/4]" />
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader>
-              <CardTitle>Customer Growth</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <LineChart className="aspect-[9/4]" />
-            </CardContent>
-          </Card>
-          </div>
+              <Card>
+                <CardHeader className="flex flex-row items-center justify-between pb-2">
+                  <CardTitle className="text-sm font-bold">
+                    Active Now
+                  </CardTitle>
+                  <ActivityIcon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+                </CardHeader>
+                <CardContent>
+                  <div className="text-2xl font-bold">+573</div>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">
+                    +201 since last hour
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-2 py-4">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Revenue by Service</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <BarChart className="aspect-[9/4]" />
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle>Customer Growth</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <LineChart className="aspect-[9/4]" />
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </SidebarInset>
       </SidebarProvider>
     </div>
-  )
+  );
 }
 
 function LineChart(props: any) {
