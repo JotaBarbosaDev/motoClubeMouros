@@ -1,4 +1,5 @@
-import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/card';
+"use client"
+
 import { AvatarImage, Avatar, AvatarFallback } from '@radix-ui/react-avatar';
 import { Skeleton } from '@/components/ui/skeleton';
 import {
@@ -10,10 +11,11 @@ import { AppSidebar } from '@/components/app-sidebar';
 import { Badge } from '@/components/ui/badge';
 import { GiFallingRocks, GiRoad } from "react-icons/gi";
 import { Dialog, DialogTrigger, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
-import { Button } from '@/components/ui/button';
 import { FaMotorcycle } from "react-icons/fa6";
 
-import {Input} from "@heroui/input";
+import {Card, CardHeader, CardBody, Image} from "@heroui/react";
+import {Button, ButtonGroup} from "@heroui/button";
+
 
 export default function Garage(){
   return (
@@ -42,8 +44,110 @@ export default function Garage(){
           </header>
         </div>
         <div className="flex flex-1 flex-col gap-4 p-4">
-          <div className="grid auto-rows-min gap-4 md:grid-cols-2 xl:grid-cols-4 lg:grid-cols-3">
-        
+          <div className="grid auto-rows-min gap-4 md:grid-cols-2 xl:grid-cols-4 lg:grid-cols-4">
+            <Card className="py-4">
+              <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+                <p className="text-tiny uppercase font-bold">Eduardo Amorim</p>
+                <small className="text-default-500">Trail</small>
+                <h4 className="font-bold text-large">Yamaha Tenere 700</h4>
+              </CardHeader>
+              <CardBody className="overflow-visible py-2">
+                <img
+                  alt="Card background"
+                  className="object-cover rounded-xl"
+                  src="https://picsum.photos/200/300?random=1"
+                  width={300}
+                  height={200}
+                />
+              </CardBody>
+            </Card>
+
+            <Card className="py-4">
+              <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+                <p className="text-tiny uppercase font-bold">Daily Mix</p>
+                <small className="text-default-500">12 Tracks</small>
+                <h4 className="font-bold text-large">Frontend Radio</h4>
+              </CardHeader>
+              <CardBody className="overflow-visible py-2">
+                <img
+                  alt="Card background"
+                  className="object-cover rounded-xl"
+                  src="https://picsum.photos/200/300?random=2"
+                  width={300}
+                  height={200}
+                />
+              </CardBody>
+            </Card>
+
+            <Card className="py-4">
+              <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+                <p className="text-tiny uppercase font-bold">Daily Mix</p>
+                <small className="text-default-500">12 Tracks</small>
+                <h4 className="font-bold text-large">Frontend Radio</h4>
+              </CardHeader>
+              <CardBody className="overflow-visible py-2">
+                <img
+                  alt="Card background"
+                  className="object-cover rounded-xl"
+                  src="https://picsum.photos/200/300?random=3"
+                  width={300}
+                  height={200}
+                />
+              </CardBody>
+            </Card>
+
+            <Card className="py-4">
+              <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+                <p className="text-tiny uppercase font-bold">Daily Mix</p>
+                <small className="text-default-500">12 Tracks</small>
+                <h4 className="font-bold text-large">Frontend Radio</h4>
+              </CardHeader>
+              <CardBody className="overflow-visible py-2">
+                <img
+                  alt="Card background"
+                  className="object-cover rounded-xl"
+                  src="https://picsum.photos/200/300?random=4"
+                  width={300}
+                  height={200}
+                />
+              </CardBody>
+            </Card>
+
+            <Card className="py-4">
+              <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+                <p className="text-tiny uppercase font-bold">Daily Mix</p>
+                <small className="text-default-500">12 Tracks</small>
+                <h4 className="font-bold text-large">Frontend Radio</h4>
+              </CardHeader>
+              <CardBody className="overflow-visible py-2">
+                <img
+                  alt="Card background"
+                  className="object-cover rounded-xl"
+                  src="https://picsum.photos/200/300?random=5"
+                  width={300}
+                  height={200}
+                />
+              </CardBody>
+            </Card>
+
+            <Card className="py-4">
+              <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+                <p className="text-tiny uppercase font-bold">Daily Mix</p>
+                <small className="text-default-500">12 Tracks</small>
+                <h4 className="font-bold text-large">Frontend Radio</h4>
+              </CardHeader>
+              <CardBody className="overflow-visible py-2">
+                <img
+                  alt="Card background"
+                  className="object-cover rounded-xl"
+                  src="https://picsum.photos/200/300?random=1"
+                  width={300}
+                  height={200}
+                />
+              </CardBody>
+            </Card>
+
+            {/*
             <div className="aspect-square sm:aspect-auto rounded-xl bg-muted/50 hover:shadow-lg">
               <Card>
                 <CardHeader>
@@ -702,7 +806,7 @@ export default function Garage(){
                   <CardDescription>2016</CardDescription>
                 </CardContent>
               </Card>
-            </div>
+            </div>  */}
           </div>
         </div>
       </SidebarInset>

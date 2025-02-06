@@ -33,7 +33,7 @@ const data = {
   user: {
     name: "João Barbosa",
     cargo: "Sócio",
-    avatar: "https://github.com/shadcn.png",
+    avatar: "https://i.pravatar.cc/150?img=11",
   },
   teams: [
     {
@@ -57,7 +57,7 @@ const data = {
     },
     {
       title: "Membros",
-      url: "/members",
+      url: "/heroMembers",
       icon: Users,
       notification: "7",
       notColor: "",
@@ -99,7 +99,7 @@ const data = {
     },
     {
       title: "Bar",
-      url: "/caixa",
+      url: "/heroBar",
       icon: BeerIcon,
       notification: "Fechado",
     },
