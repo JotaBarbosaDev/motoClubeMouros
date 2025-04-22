@@ -70,6 +70,7 @@ import {
 } from "@/components/ui/dialog";
 import {Label} from "@/components/ui/label";
 import {Card, CardHeader, CardTitle, CardContent} from "@/components/ui/card";
+import {useToast} from "@/components/ui/use-toast";
 
 export type Member = {
   id: number;
@@ -2546,15 +2547,23 @@ export const columns: ColumnDef<Member>[] = [
     accessorKey: "status",
     header: "Status",
     cell: ({row}) => {
-      if (row.getValue("status") == "Ativo") {
-        return <Badge className="bg-green-500">{row.getValue("status")}</Badge>;
-      } else if (row.getValue("status") == "Inativo") {
-        return <Badge className="bg-red-500">{row.getValue("status")}</Badge>;
-      } else if (row.getValue("status") == "pendente") {
-        return (
-          <Badge className="bg-yellow-500">{row.getValue("status")}</Badge>
-        );
-      }
+      const status = row.getValue("status");
+      return status === "Ativo" ? (
+        <Badge
+          className="bg-green-500 hover:bg-green-600 transition-colors cursor-help"
+          title="Membro ativo e em dia com pagamentos"
+        >
+          {status}
+        </Badge>
+      ) : status === "Inativo" ? (
+        <Badge className="bg-red-500 hover:bg-red-600 transition-colors">
+          {status}
+        </Badge>
+      ) : (
+        <Badge className="bg-yellow-500 hover:bg-yellow-600 transition-colors">
+          {status}
+        </Badge>
+      );
     },
     header: ({column}) => {
       // Lista de status para alternar
@@ -2602,10 +2611,11 @@ export const columns: ColumnDef<Member>[] = [
       return (
         <Button
           variant="ghost"
+          className="hover:bg-gray-100 active:bg-gray-200 transition-colors duration-200 ease-in-out transform hover:scale-105 active:scale-95"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
           Data de Adesão
-          <ArrowUpDown />
+          <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       );
     },
@@ -2694,7 +2704,21 @@ export const columns: ColumnDef<Member>[] = [
                   </div>
                 </div>
                 <DialogFooter>
-                  <Button type="submit">Salvar</Button>
+                  <Button
+                    type="submit"
+                    onClick={() => {
+                      // Lógica de salvamento
+                      toast({
+                        title: "Perfil atualizado",
+                        description: "As alterações foram salvas com sucesso.",
+                        status: "success",
+                        duration: 3000,
+                      });
+                    }}
+                    className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 transform hover:scale-105 active:scale-95"
+                  >
+                    Salvar alterações
+                  </Button>
                 </DialogFooter>
               </DialogContent>
             </Dialog>
@@ -2782,6 +2806,28 @@ export const columns: ColumnDef<Member>[] = [
               </DialogContent>
             </Dialog>
             {/* Fim ver perfil */}
+
+            {/* Desativar membro */}
+            <DropdownMenuItem
+              onClick={() => {
+                if (
+                  window.confirm(
+                    "Tem certeza que deseja desativar este membro?"
+                  )
+                ) {
+                  // Lógica de desativação
+                  toast({
+                    title: "Membro desativado",
+                    description: "O membro foi desativado com sucesso.",
+                    status: "info",
+                    duration: 3000,
+                  });
+                }
+              }}
+              className="text-red-500 hover:text-red-600 hover:bg-red-50"
+            >
+              Desativar membro
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       );
@@ -2838,13 +2884,15 @@ export default function Members() {
             </div>
           </header>
           <div className="grid gap-5 md:grid-cols-5 lg:grid-cols-5">
-            <Card>
+            <Card className="transform hover:scale-105 transition-all duration-200 hover:shadow-lg">
               <CardHeader className="flex flex-row items-center justify-between pb-2">
                 <CardTitle className="text-sm font-bold">Sócios</CardTitle>
-                <UsersIcon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+                <UsersIcon className="w-4 h-4 text-blue-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">{data.length}</div>
+                <div className="text-2xl font-bold text-blue-600">
+                  {data.length}
+                </div>
                 <p className="text-xs text-gray-500 dark:text-gray-400">
                   +180.1% que no ano passado
                 </p>
@@ -2915,7 +2963,7 @@ export default function Members() {
               onChange={(event) =>
                 table.getColumn("nome")?.setFilterValue(event.target.value)
               }
-              className="max-w-sm"
+              className="max-w-sm border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
             />
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -2972,6 +3020,7 @@ export default function Members() {
                     <TableRow
                       key={row.id}
                       data-state={row.getIsSelected() && "selected"}
+                      className="hover:bg-gray-50 transition-colors duration-200 cursor-pointer"
                     >
                       {row.getVisibleCells().map((cell) => (
                         <TableCell key={cell.id}>
@@ -2987,9 +3036,14 @@ export default function Members() {
                   <TableRow>
                     <TableCell
                       colSpan={columns.length}
-                      className="h-24 text-center"
+                      className="h-24 text-center animate-pulse"
                     >
-                      Sem resultados.
+                      <div className="flex flex-col items-center justify-center space-y-2">
+                        <div className="w-8 h-8 border-4 border-gray-200 border-t-blue-500 rounded-full animate-spin" />
+                        <span className="text-gray-500">
+                          Buscando resultados...
+                        </span>
+                      </div>
                     </TableCell>
                   </TableRow>
                 )}

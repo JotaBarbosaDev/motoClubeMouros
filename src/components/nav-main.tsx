@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import { ChevronRight, type LucideIcon } from "lucide-react"
+import {ChevronRight, type LucideIcon} from "lucide-react";
 
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/ui/collapsible"
+} from "@/components/ui/collapsible";
 import {Badge} from "@/components/ui/badge";
 
 import {
@@ -18,7 +18,7 @@ import {
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
 
 export function NavMain({
   items,
@@ -82,14 +82,14 @@ export function NavMain({
                   {item.icon && <item.icon />}
                   <span>
                     {item.title}
-                    {item.notification ? (
+                    {item.notification && (
                       <Badge
-                        className={`relative rounded-full w-auto h-4 p-2 ml-2 ${item.animate} ${item.notColor}`}
+                        className={`relative rounded-full w-auto h-4 p-2 ml-2 inline-flex items-center justify-center ${
+                          item.animate || ""
+                        } ${item.notColor || "bg-blue-500 hover:bg-blue-600"} transition-all duration-200 ease-in-out hover:scale-105`}
                       >
                         {item.notification}
                       </Badge>
-                    ) : (
-                      <span></span>
                     )}
                   </span>
                 </a>
